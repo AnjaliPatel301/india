@@ -73,19 +73,19 @@ export default function MobileMenu({ isOpen, onClose }) {
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
-              className="fixed inset-y-0 right-0 z-[61] flex h-full w-full max-w-none sm:max-w-sm flex-col bg-white shadow-premium lg:hidden"
+              className="fixed inset-y-0 right-0 z-[61] flex h-full w-full max-w-none sm:max-w-sm flex-col bg-surface-raised shadow-premium lg:hidden"
           >
               <div className="flex items-center justify-between border-b border-white/[0.08] px-4 py-4">
-              <span className="text-lg font-semibold text-black">
-               <img src="/mlm_logo.png" className='w-11' alt="" />
+              <span className="text-lg font-semibold text-ink-100">
+               <img src="/mlm_logo.png" className='w-11' alt="India MLM logo" />
               </span>
               <button
                 ref={closeButtonRef}
                 onClick={onClose}
                 aria-label="Close menu"
-                className="flex h-12 w-12 md:h-10 md:w-10 items-center justify-center rounded-full glass-panel text-black transition-colors hover:bg-white/[0.1]"
+                className="flex h-12 w-12 md:h-10 md:w-10 items-center justify-center rounded-full glass-panel text-ink-100 transition-colors hover:bg-white/[0.1]"
               >
-                <X size={20} className='text-black'/>
+                <X size={20} className='text-ink-100'/>
               </button>
             </div>
 
@@ -98,7 +98,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                         <button
                           onClick={() => toggleSection(item.label)}
                           aria-expanded={openSection === item.label}
-                          className="flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-base font-medium text-black transition-colors hover:bg-white/[0.05]"
+                          className="flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-base font-medium text-ink-100 transition-colors hover:bg-white/[0.05]"
                         >
                           {item.label}
                           <ChevronDown
@@ -142,7 +142,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                       <Link
                         to={item.path}
                         onClick={handleNavigate}
-                        className="block rounded-xl px-3 py-3.5 text-base font-medium text-black transition-colors hover:bg-white/[0.05]"
+                        className="block rounded-xl px-3 py-3.5 text-base font-medium text-ink-100 transition-colors hover:bg-white/[0.05]"
                       >
                         {item.label}
                       </Link>

@@ -58,7 +58,8 @@ const trustBadges = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] bg-white">
+    <footer className="relative border-t border-white/[0.06] bg-surface-raised">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
       <div className="container-app section-pad">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-6">
           <div className="col-span-2 lg:col-span-1">
@@ -102,7 +103,19 @@ export default function Footer() {
 
         
 
-        <div className="mt-10 flex flex-col items-center  justify-between  border-t border-white/[0.06]  md:flex-row">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-3 border-t border-white/[0.06] pt-8 md:justify-start">
+          {trustBadges.map((badge) => (
+            <span
+              key={badge.label}
+              className="inline-flex items-center gap-2 rounded-full glass-panel px-3.5 py-1.5 text-xs font-medium text-ink-200"
+            >
+              <badge.icon size={14} className="text-primary-400" />
+              {badge.label}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col items-center gap-3 justify-between border-t border-white/[0.06] pt-6 md:flex-row">
         
           <p className="text-xs text-ink-600">
             © {new Date().getFullYear()} India MLM Software. All rights reserved.

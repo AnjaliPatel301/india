@@ -35,8 +35,8 @@ import {
 function Node({ label, tone = "slate", size = "md" }) {
   const tones = {
     orange: "bg-orange-500 text-white border-orange-600",
-    slate: "bg-white text-slate-700 border-slate-300",
-    light: "bg-orange-50 text-orange-700 border-orange-200",
+    slate: "bg-surface-card text-ink-200 border-white/[0.1]",
+    light: "bg-primary-500/10 text-primary-300 border-primary-500/30",
   };
   const sizes = { sm: "w-7 h-7 text-[10px]", md: "w-9 h-9 text-xs" };
   return (
@@ -50,7 +50,7 @@ function Eyebrow({ children }) {
   return (
     <div className="flex items-center justify-center gap-2 mb-3">
       <span className="h-px w-6 bg-orange-300" />
-      <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">{children}</span>
+      <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">{children}</span>
       <span className="h-px w-6 bg-orange-300" />
     </div>
   );
@@ -58,34 +58,34 @@ function Eyebrow({ children }) {
 
 function FeatureCard({ icon: Icon, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5 hover:border-orange-300 hover:shadow-md transition">
-      <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-3">
-        <Icon size={18} className="text-orange-600" />
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5 hover:border-primary-500/40 hover:shadow-md transition">
+      <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center mb-3">
+        <Icon size={18} className="text-primary-400" />
       </div>
-      <h3 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h3>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h3 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h3>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function StepCard({ n, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
       <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center mb-3">
         {n}
       </div>
-      <h4 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h4 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function ScenarioCard({ title, children, diagram }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
-      <div className="flex items-center justify-center h-28 mb-4 bg-orange-50/60 rounded-lg">{diagram}</div>
-      <h4 className="text-sm font-semibold text-orange-600 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
+      <div className="flex items-center justify-center h-28 mb-4 bg-primary-500/10 rounded-lg">{diagram}</div>
+      <h4 className="text-sm font-semibold text-primary-400 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
@@ -94,12 +94,12 @@ function ScenarioCard({ title, children, diagram }) {
 function HeroInvestmentDiagram() {
   const bars = [10, 16, 22, 28, 34];
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+    <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 shadow-sm">
       <div className="flex items-center justify-between mb-5">
-        <span className="text-[11px] font-semibold tracking-widest uppercase text-orange-600">
+        <span className="text-[11px] font-semibold tracking-widest uppercase text-primary-400">
           Return Cycle Preview
         </span>
-        <span className="text-[11px] text-slate-400">Fixed ROI schedule</span>
+        <span className="text-[11px] text-ink-600">Fixed ROI schedule</span>
       </div>
 
       <div className="flex items-end justify-center gap-2 h-28 mb-4">
@@ -115,16 +115,16 @@ function HeroInvestmentDiagram() {
 
       <div className="flex items-center justify-center gap-2 mb-2">
         <Wallet size={14} className="text-orange-500" />
-        <span className="text-[10px] text-slate-500">Member deposits a fixed investment amount</span>
+        <span className="text-[10px] text-ink-400">Member deposits a fixed investment amount</span>
       </div>
       <div className="flex items-center justify-center gap-2">
         <LineChart size={14} className="text-orange-500" />
-        <span className="text-[9px] font-semibold text-orange-600">
+        <span className="text-[9px] font-semibold text-primary-400">
           Returns accrue on a set schedule until maturity
         </span>
       </div>
 
-      <p className="text-[11px] text-slate-500 leading-relaxed mt-5 pt-4 border-t border-slate-100 text-center">
+      <p className="text-[11px] text-ink-400 leading-relaxed mt-5 pt-4 border-t border-white/[0.06] text-center">
         Members deposit a fixed amount and receive scheduled returns — daily, weekly, or
         monthly — for a defined term, with optional referral income layered on top.
       </p>
@@ -134,24 +134,23 @@ function HeroInvestmentDiagram() {
 
 export default function InvestmentPlanPage() {
   return (
-    <div className="w-full bg-slate-50 text-slate-800" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');`}</style>
+    <div className="w-full bg-surface-base text-ink-100">
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
         {/* ============ HERO ============ */}
         <div className="flex items-center gap-2 mb-6 justify-center lg:justify-start">
           <PiggyBank size={15} className="text-orange-500" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">
             #1 MLM Investment Plan Software
           </span>
         </div>
 
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center mb-16">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-slate-900 mb-5">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-ink-100 mb-5">
               Investment Plan <span className="text-orange-500">Software</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
+            <p className="text-sm sm:text-base text-ink-400 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
               An investment plan — also called a fixed-return or ROI plan — pays members a
               scheduled return on a deposited amount over a defined term, often combined with
               referral commissions for bringing in new investors.
@@ -160,12 +159,12 @@ export default function InvestmentPlanPage() {
               <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition">
                 Get Started Free <ChevronRight size={15} />
               </button>
-              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:border-orange-400 hover:text-orange-600 transition">
+              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/[0.1] text-ink-200 hover:border-primary-500/60 hover:text-primary-400 transition">
                 <PlayCircle size={15} /> Try Free Demo
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-white/[0.08] max-w-md mx-auto lg:mx-0">
               {[
                 ["3000+", "Businesses", Building2],
                 ["100+", "Countries", Globe2],
@@ -173,8 +172,8 @@ export default function InvestmentPlanPage() {
               ].map(([n, l, Icon]) => (
                 <div key={l} className="text-center lg:text-left">
                   <Icon size={14} className="text-orange-500 mb-1.5 mx-auto lg:mx-0" />
-                  <div className="text-lg font-extrabold text-slate-900">{n}</div>
-                  <div className="text-[11px] text-slate-500">{l}</div>
+                  <div className="text-lg font-extrabold text-ink-100">{n}</div>
+                  <div className="text-[11px] text-ink-400">{l}</div>
                 </div>
               ))}
             </div>
@@ -187,12 +186,12 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Definition</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               What is an <span className="text-orange-500">Investment Plan</span>?
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
-            <p className="text-sm leading-relaxed text-slate-600">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
+            <p className="text-sm leading-relaxed text-ink-400">
               An investment plan centres around a member depositing a fixed sum into a package
               or plan tier, then receiving a pre-defined return — a fixed percentage, paid out
               daily, weekly, or monthly — until the term matures. Many plans layer referral or
@@ -224,34 +223,34 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Structure</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Deposit Tiers & Return Cycles, Explained</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Deposit Tiers & Return Cycles, Explained</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 mb-6">
-            <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+            <div className="bg-primary-500/10 rounded-xl border border-primary-500/30 p-6">
               <div className="text-2xl mb-2">💰</div>
-              <h3 className="text-sm font-bold text-orange-700 mb-1">Deposit Tier (Fixed Package)</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-primary-300 mb-1">Deposit Tier (Fixed Package)</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 Each tier defines a deposit amount, a fixed return rate, and a maturity term set
                 by the company.
               </p>
-              <span className="text-[11px] font-semibold text-orange-600">Controls Return Rate</span>
+              <span className="text-[11px] font-semibold text-primary-400">Controls Return Rate</span>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="text-2xl mb-2">📈</div>
-              <h3 className="text-sm font-bold text-slate-800 mb-1">Return Cycle</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-ink-100 mb-1">Return Cycle</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 The fixed interval at which accrued returns are calculated and credited to the
                 member's account.
               </p>
-              <span className="text-[11px] font-semibold text-slate-500">Controls Payout Timing</span>
+              <span className="text-[11px] font-semibold text-ink-400">Controls Payout Timing</span>
             </div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-6 text-white">
+          <div className="bg-surface-card rounded-xl p-6 text-white">
             <h4 className="text-sm font-bold mb-3 text-orange-400">Return Calculation Logic</h4>
-            <p className="text-xs text-slate-300 mb-3">
+            <p className="text-xs text-ink-200 mb-3">
               At every return cycle, the software checks each active deposit:
             </p>
-            <ul className="space-y-1.5 text-xs text-slate-300">
+            <ul className="space-y-1.5 text-xs text-ink-200">
               {[
                 "Active deposits are checked against their tier's fixed return rate",
                 "The accrued return for the cycle is calculated and credited to the member's wallet",
@@ -269,7 +268,7 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Workflow</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               How Does the Investment Plan Work?
             </h2>
           </div>
@@ -300,32 +299,32 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Analysis</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Pros & Cons of the Investment Plan</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Pros & Cons of the Investment Plan</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 size={17} className="text-orange-500" />
-                <span className="text-sm font-bold text-slate-800">Pros of the Investment Plan</span>
+                <span className="text-sm font-bold text-ink-100">Pros of the Investment Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Predictable Returns</b> — fixed rates and schedules make earnings easy for members to forecast.</li>
-                <li><b className="text-slate-800">Simple to Understand</b> — deposit, wait, and collect — no complex genealogy rules to follow.</li>
-                <li><b className="text-slate-800">Passive Income Appeal</b> — returns accrue automatically without requiring active selling.</li>
-                <li><b className="text-slate-800">Optional Referral Boost</b> — members who do refer others can stack extra commission on top.</li>
-                <li><b className="text-slate-800">Tiered Flexibility</b> — multiple deposit tiers let members choose a commitment level that fits them.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Predictable Returns</b> — fixed rates and schedules make earnings easy for members to forecast.</li>
+                <li><b className="text-ink-100">Simple to Understand</b> — deposit, wait, and collect — no complex genealogy rules to follow.</li>
+                <li><b className="text-ink-100">Passive Income Appeal</b> — returns accrue automatically without requiring active selling.</li>
+                <li><b className="text-ink-100">Optional Referral Boost</b> — members who do refer others can stack extra commission on top.</li>
+                <li><b className="text-ink-100">Tiered Flexibility</b> — multiple deposit tiers let members choose a commitment level that fits them.</li>
               </ul>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
-                <XCircle size={17} className="text-slate-400" />
-                <span className="text-sm font-bold text-slate-800">Cons of the Investment Plan</span>
+                <XCircle size={17} className="text-ink-600" />
+                <span className="text-sm font-bold text-ink-100">Cons of the Investment Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">High Regulatory Risk</b> — fixed-return models can resemble Ponzi or unregistered securities schemes in many jurisdictions.</li>
-                <li><b className="text-slate-800">Depends on New Deposits</b> — without genuine revenue, returns can become reliant on incoming member funds.</li>
-                <li><b className="text-slate-800">Liquidity Pressure</b> — paying out fixed returns on schedule requires careful cash-flow management.</li>
-                <li><b className="text-slate-800">Reputational Exposure</b> — fixed-ROI language invites comparisons to high-risk investment scams.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">High Regulatory Risk</b> — fixed-return models can resemble Ponzi or unregistered securities schemes in many jurisdictions.</li>
+                <li><b className="text-ink-100">Depends on New Deposits</b> — without genuine revenue, returns can become reliant on incoming member funds.</li>
+                <li><b className="text-ink-100">Liquidity Pressure</b> — paying out fixed returns on schedule requires careful cash-flow management.</li>
+                <li><b className="text-ink-100">Reputational Exposure</b> — fixed-ROI language invites comparisons to high-risk investment scams.</li>
               </ul>
             </div>
           </div>
@@ -335,11 +334,11 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Scenarios</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Different Scenarios in an Investment Plan
             </h2>
-            <p className="text-xs text-slate-500 max-w-xl mx-auto mt-2">
-              <b className="text-slate-700">Maturity</b> — the point at which a deposit's fixed
+            <p className="text-xs text-ink-400 max-w-xl mx-auto mt-2">
+              <b className="text-ink-200">Maturity</b> — the point at which a deposit's fixed
               term ends and the plan closes out.
             </p>
           </div>
@@ -363,7 +362,7 @@ export default function InvestmentPlanPage() {
                 <div className="flex items-end gap-1.5">
                   <div className="w-5 bg-orange-400 rounded-t-sm" style={{ height: "12px" }} />
                   <div className="w-5 bg-orange-400 rounded-t-sm" style={{ height: "16px" }} />
-                  <div className="w-5 rounded-t-sm border-2 border-dashed border-slate-300" style={{ height: "20px" }} />
+                  <div className="w-5 rounded-t-sm border-2 border-dashed border-white/[0.1]" style={{ height: "20px" }} />
                 </div>
               }
             >
@@ -393,7 +392,7 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Configuration</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">How Returns & Eligibility Are Measured</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">How Returns & Eligibility Are Measured</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={Gauge} title="Fixed Return Rate">
@@ -419,45 +418,45 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Earnings</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Fixed Return Payout — Example
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8">
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 1 · Deposit Made</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 1 · Deposit Made</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Member A deposits $1,000 into a 90-day tier offering a 1% daily return rate.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 2 · Daily Accrual</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 2 · Daily Accrual</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Each day, the software credits 1% of the $1,000 deposit — $10 per day — to A's
                   wallet.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 3 · Referral Bonus</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 3 · Referral Bonus</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   A refers a new investor, earning an extra 5% referral commission on that
                   investor's deposit.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 4 · Term Matures</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 4 · Term Matures</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   After 90 days, A has earned $900 in returns ($10 × 90 days) on top of the
                   original deposit.
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-between bg-orange-50 border border-orange-200 rounded-xl px-5 py-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-600">
+            <div className="flex items-center justify-between bg-primary-500/10 border border-primary-500/30 rounded-xl px-5 py-4">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
                 Total Return Earned by A (90 Days)
               </span>
-              <span className="text-2xl font-extrabold text-orange-600">$900</span>
+              <span className="text-2xl font-extrabold text-primary-400">$900</span>
             </div>
           </div>
         </section>
@@ -466,7 +465,7 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Capping</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Investment Plan Capping</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Investment Plan Capping</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <FeatureCard icon={Lock} title="Capping by Total Return Multiple">
@@ -484,7 +483,7 @@ export default function InvestmentPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Rewards</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Bonuses That Stack on Top</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Bonuses That Stack on Top</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={PiggyBank} title="Fixed Return Bonus">Core scheduled payout earned on the active deposit each cycle.</FeatureCard>
@@ -500,9 +499,9 @@ export default function InvestmentPlanPage() {
         <section>
           <div className="text-center mb-8">
             <Eyebrow>Summary</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">At a Glance</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">At a Glance</h2>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden max-w-2xl mx-auto">
+          <div className="bg-surface-card rounded-xl border border-white/[0.08] overflow-hidden max-w-2xl mx-auto">
             {[
               ["Core Driver", "Fixed deposit earning a scheduled return"],
               ["Payout Trigger", "Each return cycle on an active deposit"],
@@ -514,10 +513,10 @@ export default function InvestmentPlanPage() {
             ].map(([k, v], i) => (
               <div
                 key={k}
-                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-orange-50/50" : "bg-white"} ${i ? "border-t border-slate-100" : ""}`}
+                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-primary-500/10/50" : "bg-surface-card"} ${i ? "border-t border-white/[0.06]" : ""}`}
               >
-                <span className="font-semibold text-slate-500">{k}</span>
-                <span className="text-slate-800">{v}</span>
+                <span className="font-semibold text-ink-400">{k}</span>
+                <span className="text-ink-100">{v}</span>
               </div>
             ))}
           </div>

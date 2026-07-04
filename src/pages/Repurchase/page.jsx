@@ -33,8 +33,8 @@ import {
 function Node({ label, tone = "slate", size = "md" }) {
   const tones = {
     orange: "bg-orange-500 text-white border-orange-600",
-    slate: "bg-white text-slate-700 border-slate-300",
-    light: "bg-orange-50 text-orange-700 border-orange-200",
+    slate: "bg-surface-card text-ink-200 border-white/[0.1]",
+    light: "bg-primary-500/10 text-primary-300 border-primary-500/30",
   };
   const sizes = { sm: "w-7 h-7 text-[10px]", md: "w-9 h-9 text-xs" };
   return (
@@ -48,7 +48,7 @@ function Eyebrow({ children }) {
   return (
     <div className="flex items-center justify-center gap-2 mb-3">
       <span className="h-px w-6 bg-orange-300" />
-      <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">{children}</span>
+      <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">{children}</span>
       <span className="h-px w-6 bg-orange-300" />
     </div>
   );
@@ -56,34 +56,34 @@ function Eyebrow({ children }) {
 
 function FeatureCard({ icon: Icon, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5 hover:border-orange-300 hover:shadow-md transition">
-      <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-3">
-        <Icon size={18} className="text-orange-600" />
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5 hover:border-primary-500/40 hover:shadow-md transition">
+      <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center mb-3">
+        <Icon size={18} className="text-primary-400" />
       </div>
-      <h3 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h3>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h3 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h3>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function StepCard({ n, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
       <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center mb-3">
         {n}
       </div>
-      <h4 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h4 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function ScenarioCard({ title, children, diagram }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
-      <div className="flex items-center justify-center h-28 mb-4 bg-orange-50/60 rounded-lg">{diagram}</div>
-      <h4 className="text-sm font-semibold text-orange-600 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
+      <div className="flex items-center justify-center h-28 mb-4 bg-primary-500/10 rounded-lg">{diagram}</div>
+      <h4 className="text-sm font-semibold text-primary-400 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
@@ -91,33 +91,33 @@ function ScenarioCard({ title, children, diagram }) {
 /* ---------- hero diagram: a repeat purchase cycle feeding commissions back up the tree ---------- */
 function HeroRepurchaseDiagram() {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+    <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 shadow-sm">
       <div className="flex items-center justify-between mb-5">
-        <span className="text-[11px] font-semibold tracking-widest uppercase text-orange-600">
+        <span className="text-[11px] font-semibold tracking-widest uppercase text-primary-400">
           Repurchase Cycle Preview
         </span>
-        <span className="text-[11px] text-slate-400">Monthly order cycle</span>
+        <span className="text-[11px] text-ink-600">Monthly order cycle</span>
       </div>
 
       <div className="flex flex-col items-center gap-2">
         <Node label="A" tone="orange" />
-        <div className="w-px h-3 bg-slate-300" />
+        <div className="w-px h-3 bg-white/20" />
         <div className="flex gap-3">
           <Node label="B" tone="light" size="sm" />
           <Node label="C" tone="light" size="sm" />
         </div>
-        <span className="text-[9px] font-semibold text-orange-600 mt-1">B & C place repeat monthly orders</span>
+        <span className="text-[9px] font-semibold text-primary-400 mt-1">B & C place repeat monthly orders</span>
         <div className="flex items-center gap-2 mt-2">
           <RefreshCw size={14} className="text-orange-500" />
-          <span className="text-[10px] text-slate-500">Repurchase volume flows back up to A</span>
+          <span className="text-[10px] text-ink-400">Repurchase volume flows back up to A</span>
         </div>
-        <div className="flex items-center gap-2 mt-2 bg-orange-50 rounded-full px-3 py-1">
+        <div className="flex items-center gap-2 mt-2 bg-primary-500/10 rounded-full px-3 py-1">
           <Coins size={13} className="text-orange-500" />
-          <span className="text-[10px] font-semibold text-orange-600">A earns commission every cycle</span>
+          <span className="text-[10px] font-semibold text-primary-400">A earns commission every cycle</span>
         </div>
       </div>
 
-      <p className="text-[11px] text-slate-500 leading-relaxed mt-5 pt-4 border-t border-slate-100 text-center">
+      <p className="text-[11px] text-ink-400 leading-relaxed mt-5 pt-4 border-t border-white/[0.06] text-center">
         Unlike one-time joining fees, a repurchase plan pays out on every recurring product
         order placed by the downline — turning ongoing consumption into ongoing income.
       </p>
@@ -127,24 +127,23 @@ function HeroRepurchaseDiagram() {
 
 export default function RepurchasePlanPage() {
   return (
-    <div className="w-full bg-slate-50 text-slate-800" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');`}</style>
+    <div className="w-full bg-surface-base text-ink-100">
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
         {/* ============ HERO ============ */}
         <div className="flex items-center gap-2 mb-6 justify-center lg:justify-start">
           <RefreshCw size={15} className="text-orange-500" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">
             #1 MLM Repurchase Plan Software
           </span>
         </div>
 
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center mb-16">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-slate-900 mb-5">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-ink-100 mb-5">
               Repurchase Plan <span className="text-orange-500">Software</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
+            <p className="text-sm sm:text-base text-ink-400 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
               A repurchase plan — also called a consumption or recurring-order plan — rewards
               distributors for ongoing product reorders across their network, instead of
               one-time joining fees. The more the network keeps buying, the more everyone keeps
@@ -154,12 +153,12 @@ export default function RepurchasePlanPage() {
               <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition">
                 Get Started Free <ChevronRight size={15} />
               </button>
-              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:border-orange-400 hover:text-orange-600 transition">
+              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/[0.1] text-ink-200 hover:border-primary-500/60 hover:text-primary-400 transition">
                 <PlayCircle size={15} /> Try Free Demo
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-white/[0.08] max-w-md mx-auto lg:mx-0">
               {[
                 ["3000+", "Businesses", Building2],
                 ["100+", "Countries", Globe2],
@@ -167,8 +166,8 @@ export default function RepurchasePlanPage() {
               ].map(([n, l, Icon]) => (
                 <div key={l} className="text-center lg:text-left">
                   <Icon size={14} className="text-orange-500 mb-1.5 mx-auto lg:mx-0" />
-                  <div className="text-lg font-extrabold text-slate-900">{n}</div>
-                  <div className="text-[11px] text-slate-500">{l}</div>
+                  <div className="text-lg font-extrabold text-ink-100">{n}</div>
+                  <div className="text-[11px] text-ink-400">{l}</div>
                 </div>
               ))}
             </div>
@@ -181,12 +180,12 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Definition</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               What is a <span className="text-orange-500">Repurchase Plan</span>?
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
-            <p className="text-sm leading-relaxed text-slate-600">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
+            <p className="text-sm leading-relaxed text-ink-400">
               A repurchase plan centres commissions around recurring product orders rather than a
               single joining purchase. Every time a distributor or their downline reorders —
               weekly, monthly, or on a custom cycle — that repurchase volume generates
@@ -217,34 +216,34 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Structure</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Repurchase Volume & Cycles, Explained</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Repurchase Volume & Cycles, Explained</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 mb-6">
-            <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+            <div className="bg-primary-500/10 rounded-xl border border-primary-500/30 p-6">
               <div className="text-2xl mb-2">🛒</div>
-              <h3 className="text-sm font-bold text-orange-700 mb-1">Repurchase Volume (RV)</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-primary-300 mb-1">Repurchase Volume (RV)</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 Every reorder placed by a distributor or their downline adds to a tracked
                 repurchase volume pool.
               </p>
-              <span className="text-[11px] font-semibold text-orange-600">Controls Commission Pool</span>
+              <span className="text-[11px] font-semibold text-primary-400">Controls Commission Pool</span>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="text-2xl mb-2">📅</div>
-              <h3 className="text-sm font-bold text-slate-800 mb-1">Repurchase Cycle</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-ink-100 mb-1">Repurchase Cycle</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 A fixed period — often monthly — after which accumulated repurchase volume is
                 processed and paid out.
               </p>
-              <span className="text-[11px] font-semibold text-slate-500">Controls Payout Timing</span>
+              <span className="text-[11px] font-semibold text-ink-400">Controls Payout Timing</span>
             </div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-6 text-white">
+          <div className="bg-surface-card rounded-xl p-6 text-white">
             <h4 className="text-sm font-bold mb-3 text-orange-400">Repurchase Commission Logic</h4>
-            <p className="text-xs text-slate-300 mb-3">
+            <p className="text-xs text-ink-200 mb-3">
               Every time a reorder is placed, the software checks the network's status:
             </p>
-            <ul className="space-y-1.5 text-xs text-slate-300">
+            <ul className="space-y-1.5 text-xs text-ink-200">
               {[
                 "The reorder's volume is logged against the buyer and rolled up the sponsor chain",
                 "At cycle close, total repurchase volume per upline is calculated against their rate",
@@ -262,7 +261,7 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Workflow</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               How Does the Repurchase Plan Work?
             </h2>
           </div>
@@ -294,32 +293,32 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Analysis</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Pros & Cons of the Repurchase Plan</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Pros & Cons of the Repurchase Plan</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 size={17} className="text-orange-500" />
-                <span className="text-sm font-bold text-slate-800">Pros of the Repurchase Plan</span>
+                <span className="text-sm font-bold text-ink-100">Pros of the Repurchase Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Predictable Recurring Income</b> — earnings are tied to consistent reorder cycles rather than one-time sign-ups.</li>
-                <li><b className="text-slate-800">Genuine Product Focus</b> — rewards real consumption, which supports long-term business legitimacy.</li>
-                <li><b className="text-slate-800">Customer Retention Incentive</b> — distributors are motivated to keep their downline actively reordering.</li>
-                <li><b className="text-slate-800">Lower Recruitment Pressure</b> — income doesn't solely depend on constantly signing up new members.</li>
-                <li><b className="text-slate-800">Easy to Combine</b> — repurchase commissions layer cleanly on top of binary, matrix, or unilevel structures.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Predictable Recurring Income</b> — earnings are tied to consistent reorder cycles rather than one-time sign-ups.</li>
+                <li><b className="text-ink-100">Genuine Product Focus</b> — rewards real consumption, which supports long-term business legitimacy.</li>
+                <li><b className="text-ink-100">Customer Retention Incentive</b> — distributors are motivated to keep their downline actively reordering.</li>
+                <li><b className="text-ink-100">Lower Recruitment Pressure</b> — income doesn't solely depend on constantly signing up new members.</li>
+                <li><b className="text-ink-100">Easy to Combine</b> — repurchase commissions layer cleanly on top of binary, matrix, or unilevel structures.</li>
               </ul>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
-                <XCircle size={17} className="text-slate-400" />
-                <span className="text-sm font-bold text-slate-800">Cons of the Repurchase Plan</span>
+                <XCircle size={17} className="text-ink-600" />
+                <span className="text-sm font-bold text-ink-100">Cons of the Repurchase Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Depends on Customer Retention</b> — income drops quickly if downline members stop reordering.</li>
-                <li><b className="text-slate-800">Requires Strong Product Appeal</b> — repeat purchases only happen if the product genuinely earns repeat business.</li>
-                <li><b className="text-slate-800">Cycle Tracking Complexity</b> — accurately rolling up recurring volume across cycles needs reliable automation.</li>
-                <li><b className="text-slate-800">Slower Early Earnings</b> — new distributors must wait for downline reorder cycles to build meaningful income.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Depends on Customer Retention</b> — income drops quickly if downline members stop reordering.</li>
+                <li><b className="text-ink-100">Requires Strong Product Appeal</b> — repeat purchases only happen if the product genuinely earns repeat business.</li>
+                <li><b className="text-ink-100">Cycle Tracking Complexity</b> — accurately rolling up recurring volume across cycles needs reliable automation.</li>
+                <li><b className="text-ink-100">Slower Early Earnings</b> — new distributors must wait for downline reorder cycles to build meaningful income.</li>
               </ul>
             </div>
           </div>
@@ -329,11 +328,11 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Scenarios</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Different Scenarios in a Repurchase Plan
             </h2>
-            <p className="text-xs text-slate-500 max-w-xl mx-auto mt-2">
-              <b className="text-slate-700">Repurchase Cycle</b> — the recurring period after
+            <p className="text-xs text-ink-400 max-w-xl mx-auto mt-2">
+              <b className="text-ink-200">Repurchase Cycle</b> — the recurring period after
               which accumulated reorder volume is calculated and paid out.
             </p>
           </div>
@@ -354,8 +353,8 @@ export default function RepurchasePlanPage() {
               diagram={
                 <div className="grid grid-cols-4 gap-1.5">
                   <Node label="1" tone="orange" size="sm" /><Node label="2" tone="light" size="sm" />
-                  <div className="w-7 h-7 rounded-lg border-2 border-dashed border-slate-300" />
-                  <div className="w-7 h-7 rounded-lg border-2 border-dashed border-slate-300" />
+                  <div className="w-7 h-7 rounded-lg border-2 border-dashed border-white/[0.1]" />
+                  <div className="w-7 h-7 rounded-lg border-2 border-dashed border-white/[0.1]" />
                 </div>
               }
             >
@@ -385,7 +384,7 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Qualification</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">How Repurchase Eligibility Is Measured</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">How Repurchase Eligibility Is Measured</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={Gauge} title="Personal Repurchase Volume">
@@ -415,46 +414,46 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Earnings</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Repurchase Commission Payout — Example
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8">
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 1 · Cycle Opens</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 1 · Cycle Opens</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   A new monthly repurchase cycle begins, and Distributor A's downline starts
                   placing reorders.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 2 · Reorders Logged</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 2 · Reorders Logged</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   10 downline members reorder during the cycle, each generating $50 in repurchase
                   volume — $500 total.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 3 · Cycle Closes</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 3 · Cycle Closes</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   At cycle close, A's rank qualifies them for a 12% repurchase commission rate on
                   total group volume.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 4 · Payout Calculated</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 4 · Payout Calculated</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   $500 repurchase volume × 12% commission rate ={" "}
-                  <b className="text-slate-800">$60</b> paid out for this cycle.
+                  <b className="text-ink-100">$60</b> paid out for this cycle.
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-between bg-orange-50 border border-orange-200 rounded-xl px-5 py-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-600">
+            <div className="flex items-center justify-between bg-primary-500/10 border border-primary-500/30 rounded-xl px-5 py-4">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
                 Repurchase Commission Earned by A
               </span>
-              <span className="text-2xl font-extrabold text-orange-600">$60</span>
+              <span className="text-2xl font-extrabold text-primary-400">$60</span>
             </div>
           </div>
         </section>
@@ -463,7 +462,7 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Capping</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Repurchase Plan Capping</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Repurchase Plan Capping</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <FeatureCard icon={Lock} title="Capping by Cycle Volume">
@@ -481,7 +480,7 @@ export default function RepurchasePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Rewards</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Bonuses That Stack on Top</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Bonuses That Stack on Top</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={RefreshCw} title="Repurchase Commission">Core payout earned from recurring reorder volume each cycle.</FeatureCard>
@@ -497,9 +496,9 @@ export default function RepurchasePlanPage() {
         <section>
           <div className="text-center mb-8">
             <Eyebrow>Summary</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">At a Glance</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">At a Glance</h2>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden max-w-2xl mx-auto">
+          <div className="bg-surface-card rounded-xl border border-white/[0.08] overflow-hidden max-w-2xl mx-auto">
             {[
               ["Core Driver", "Recurring product reorders, not one-time joining fees"],
               ["Payout Trigger", "Repurchase volume accumulated within each cycle"],
@@ -511,10 +510,10 @@ export default function RepurchasePlanPage() {
             ].map(([k, v], i) => (
               <div
                 key={k}
-                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-orange-50/50" : "bg-white"} ${i ? "border-t border-slate-100" : ""}`}
+                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-primary-500/10/50" : "bg-surface-card"} ${i ? "border-t border-white/[0.06]" : ""}`}
               >
-                <span className="font-semibold text-slate-500">{k}</span>
-                <span className="text-slate-800">{v}</span>
+                <span className="font-semibold text-ink-400">{k}</span>
+                <span className="text-ink-100">{v}</span>
               </div>
             ))}
           </div>

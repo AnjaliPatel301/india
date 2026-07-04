@@ -30,8 +30,8 @@ import {
 function Node({ label, tone = "slate", size = "md" }) {
   const tones = {
     orange: "bg-orange-500 text-white border-orange-600",
-    slate: "bg-white text-slate-700 border-slate-300",
-    light: "bg-orange-50 text-orange-700 border-orange-200",
+    slate: "bg-surface-card text-ink-200 border-white/[0.1]",
+    light: "bg-primary-500/10 text-primary-300 border-primary-500/30",
   };
   const sizes = { sm: "w-7 h-7 text-[10px]", md: "w-9 h-9 text-xs" };
   return (
@@ -50,26 +50,26 @@ function Branch({ children }) {
 /* ---------- hero genealogy tree ---------- */
 function HeroTree() {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+    <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 shadow-sm">
       <div className="flex items-center justify-between mb-5">
-        <span className="text-[11px] font-semibold tracking-widest uppercase text-orange-600">
+        <span className="text-[11px] font-semibold tracking-widest uppercase text-primary-400">
           Binary Tree Preview
         </span>
-        <span className="text-[11px] text-slate-400">2 legs · ∞ depth</span>
+        <span className="text-[11px] text-ink-600">2 legs · ∞ depth</span>
       </div>
 
       <div className="flex flex-col items-center gap-2">
         <Node label="A" tone="orange" />
-        <div className="w-px h-4 bg-slate-300" />
+        <div className="w-px h-4 bg-white/20" />
         <div className="flex gap-16">
           <div className="w-px h-0" />
         </div>
         <div className="flex w-full justify-center">
           <div className="flex items-start gap-20 relative">
-            <div className="absolute top-[-16px] left-1/2 -translate-x-1/2 w-32 border-t border-slate-300" />
+            <div className="absolute top-[-16px] left-1/2 -translate-x-1/2 w-32 border-t border-white/[0.1]" />
             <Branch>
               <Node label="B" tone="light" />
-              <div className="w-px h-4 bg-slate-300" />
+              <div className="w-px h-4 bg-white/20" />
               <div className="flex gap-6">
                 <Node label="D" size="sm" />
                 <Node label="E" size="sm" />
@@ -77,7 +77,7 @@ function HeroTree() {
             </Branch>
             <Branch>
               <Node label="C" tone="light" />
-              <div className="w-px h-4 bg-slate-300" />
+              <div className="w-px h-4 bg-white/20" />
               <div className="flex gap-6">
                 <Node label="F" size="sm" />
                 <Node label="G" size="sm" />
@@ -87,12 +87,12 @@ function HeroTree() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-6 mt-6 pt-5 border-t border-slate-100">
-        <div className="flex items-center gap-1.5 text-[11px] text-slate-500">
-          <span className="w-2.5 h-2.5 rounded-full bg-orange-50 border-2 border-orange-200" /> Left Leg
+      <div className="flex items-center justify-center gap-6 mt-6 pt-5 border-t border-white/[0.06]">
+        <div className="flex items-center gap-1.5 text-[11px] text-ink-400">
+          <span className="w-2.5 h-2.5 rounded-full bg-primary-500/10 border-2 border-primary-500/30" /> Left Leg
         </div>
-        <div className="flex items-center gap-1.5 text-[11px] text-slate-500">
-          <span className="w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300" /> Right (Pay) Leg
+        <div className="flex items-center gap-1.5 text-[11px] text-ink-400">
+          <span className="w-2.5 h-2.5 rounded-full bg-surface-card border-2 border-white/[0.1]" /> Right (Pay) Leg
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@ function Eyebrow({ children }) {
   return (
     <div className="flex items-center justify-center gap-2 mb-3">
       <span className="h-px w-6 bg-orange-300" />
-      <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">{children}</span>
+      <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">{children}</span>
       <span className="h-px w-6 bg-orange-300" />
     </div>
   );
@@ -112,58 +112,57 @@ function Eyebrow({ children }) {
 
 function FeatureCard({ icon: Icon, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5 hover:border-orange-300 hover:shadow-md transition">
-      <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-3">
-        <Icon size={18} className="text-orange-600" />
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5 hover:border-primary-500/40 hover:shadow-md transition">
+      <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center mb-3">
+        <Icon size={18} className="text-primary-400" />
       </div>
-      <h3 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h3>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h3 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h3>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function StepCard({ n, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5 relative">
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5 relative">
       <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center mb-3">
         {n}
       </div>
-      <h4 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h4 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function ScenarioCard({ title, children, diagram }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
-      <div className="flex items-center justify-center h-28 mb-4 bg-orange-50/60 rounded-lg">{diagram}</div>
-      <h4 className="text-sm font-semibold text-orange-600 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
+      <div className="flex items-center justify-center h-28 mb-4 bg-primary-500/10 rounded-lg">{diagram}</div>
+      <h4 className="text-sm font-semibold text-primary-400 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 export default function BinaryMlmPlanPage() {
   return (
-    <div className="w-full bg-slate-50 text-slate-800" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');`}</style>
+    <div className="w-full bg-surface-base text-ink-100">
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
         {/* ============ HERO ============ */}
         <div className="flex items-center gap-2 mb-6 justify-center lg:justify-start">
           <GitBranch size={15} className="text-orange-500" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">
             #1 MLM Binary Plan Software
           </span>
         </div>
 
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center mb-16">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-slate-900 mb-5">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-ink-100 mb-5">
               Binary MLM Plan <span className="text-orange-500">Software</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
+            <p className="text-sm sm:text-base text-ink-400 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
               A binary plan is a fast-growing, two-legged compensation structure in MLM. Each
               distributor sponsors only two frontline members — a left leg and a right leg —
               with commissions paid on the weaker leg's sales volume.
@@ -172,12 +171,12 @@ export default function BinaryMlmPlanPage() {
               <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition">
                 Get Started Free <ChevronRight size={15} />
               </button>
-              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:border-orange-400 hover:text-orange-600 transition">
+              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/[0.1] text-ink-200 hover:border-primary-500/60 hover:text-primary-400 transition">
                 <PlayCircle size={15} /> Try Free Demo
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-white/[0.08] max-w-md mx-auto lg:mx-0">
               {[
                 ["3000+", "Businesses", Building2],
                 ["100+", "Countries", Globe2],
@@ -185,8 +184,8 @@ export default function BinaryMlmPlanPage() {
               ].map(([n, l, Icon]) => (
                 <div key={l} className="text-center lg:text-left">
                   <Icon size={14} className="text-orange-500 mb-1.5 mx-auto lg:mx-0" />
-                  <div className="text-lg font-extrabold text-slate-900">{n}</div>
-                  <div className="text-[11px] text-slate-500">{l}</div>
+                  <div className="text-lg font-extrabold text-ink-100">{n}</div>
+                  <div className="text-[11px] text-ink-400">{l}</div>
                 </div>
               ))}
             </div>
@@ -199,12 +198,12 @@ export default function BinaryMlmPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Definition</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               What is a <span className="text-orange-500">Binary MLM Plan</span>?
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
-            <p className="text-sm leading-relaxed text-slate-600">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
+            <p className="text-sm leading-relaxed text-ink-400">
               A binary MLM plan limits every member's frontline to two downlines — left and right
               — while depth remains unlimited. Spillover places extra recruits below the
               frontline, and commissions are calculated on the weaker (lower-volume) leg each
@@ -231,36 +230,36 @@ export default function BinaryMlmPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Structure</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Left Leg & Right Leg, Explained
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 mb-6">
-            <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+            <div className="bg-primary-500/10 rounded-xl border border-primary-500/30 p-6">
               <div className="text-2xl mb-2">💪</div>
-              <h3 className="text-sm font-bold text-orange-700 mb-1">Left Leg (Strong / Reference Leg)</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-primary-300 mb-1">Left Leg (Strong / Reference Leg)</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 Usually the stronger side with higher Business Volume (BV). Its volume is the
                 reference for pairing — unmatched BV carries forward to the next cycle.
               </p>
-              <span className="text-[11px] font-semibold text-orange-600">Higher BV Side</span>
+              <span className="text-[11px] font-semibold text-primary-400">Higher BV Side</span>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="text-2xl mb-2">⚖️</div>
-              <h3 className="text-sm font-bold text-slate-800 mb-1">Right Leg (Weak / Pay Leg)</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-ink-100 mb-1">Right Leg (Weak / Pay Leg)</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 Typically the weaker side. Commissions are calculated on this leg's matched
                 volume, encouraging members to balance both sides.
               </p>
-              <span className="text-[11px] font-semibold text-slate-500">Commission Source</span>
+              <span className="text-[11px] font-semibold text-ink-400">Commission Source</span>
             </div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-6 text-white">
+          <div className="bg-surface-card rounded-xl p-6 text-white">
             <h4 className="text-sm font-bold mb-3 text-orange-400">Binary Pairing & Volume Carry Forward</h4>
-            <p className="text-xs text-slate-300 mb-3">
+            <p className="text-xs text-ink-200 mb-3">
               Every payout cycle, the software compares BV on both legs:
             </p>
-            <ul className="space-y-1.5 text-xs text-slate-300">
+            <ul className="space-y-1.5 text-xs text-ink-200">
               {[
                 "Commission is paid on the weaker leg's BV",
                 "Matched volume is flushed after payout",
@@ -278,7 +277,7 @@ export default function BinaryMlmPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Workflow</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               How Does the Binary MLM Plan Work?
             </h2>
           </div>
@@ -310,32 +309,32 @@ export default function BinaryMlmPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Analysis</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Pros & Cons of the Binary Plan</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Pros & Cons of the Binary Plan</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 size={17} className="text-orange-500" />
-                <span className="text-sm font-bold text-slate-800">Pros of the Binary MLM Plan</span>
+                <span className="text-sm font-bold text-ink-100">Pros of the Binary MLM Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Maximise Sales Productivity</b> — balanced team growth drives continuous BV.</li>
-                <li><b className="text-slate-800">Supports Spillover Growth</b> — strategic placement strengthens weaker legs.</li>
-                <li><b className="text-slate-800">Rapid Growth Potential</b> — team-wide recruiting expands earnings fast.</li>
-                <li><b className="text-slate-800">Easy to Understand</b> — a simple plan new distributors grasp quickly.</li>
-                <li><b className="text-slate-800">Encourages Teamwork</b> — commissions depend on both legs working together.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Maximise Sales Productivity</b> — balanced team growth drives continuous BV.</li>
+                <li><b className="text-ink-100">Supports Spillover Growth</b> — strategic placement strengthens weaker legs.</li>
+                <li><b className="text-ink-100">Rapid Growth Potential</b> — team-wide recruiting expands earnings fast.</li>
+                <li><b className="text-ink-100">Easy to Understand</b> — a simple plan new distributors grasp quickly.</li>
+                <li><b className="text-ink-100">Encourages Teamwork</b> — commissions depend on both legs working together.</li>
               </ul>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
-                <XCircle size={17} className="text-slate-400" />
-                <span className="text-sm font-bold text-slate-800">Cons of the Binary MLM Plan</span>
+                <XCircle size={17} className="text-ink-600" />
+                <span className="text-sm font-bold text-ink-100">Cons of the Binary MLM Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Depends on Team Activity</b> — earnings drop if downline members go inactive.</li>
-                <li><b className="text-slate-800">Leg Balancing Is Hard</b> — equal growth on both sides isn't always easy.</li>
-                <li><b className="text-slate-800">Wide Gaps Limit Earnings</b> — large imbalance reduces pairing potential.</li>
-                <li><b className="text-slate-800">Requires Reliable Software</b> — accurate carry-forward tracking is essential.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Depends on Team Activity</b> — earnings drop if downline members go inactive.</li>
+                <li><b className="text-ink-100">Leg Balancing Is Hard</b> — equal growth on both sides isn't always easy.</li>
+                <li><b className="text-ink-100">Wide Gaps Limit Earnings</b> — large imbalance reduces pairing potential.</li>
+                <li><b className="text-ink-100">Requires Reliable Software</b> — accurate carry-forward tracking is essential.</li>
               </ul>
             </div>
           </div>
@@ -345,11 +344,11 @@ export default function BinaryMlmPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Scenarios</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Different Scenarios in a Binary Plan
             </h2>
-            <p className="text-xs text-slate-500 max-w-xl mx-auto mt-2">
-              <b className="text-slate-700">Sponsor</b> introduces a new member; <b className="text-slate-700">Parent</b> is
+            <p className="text-xs text-ink-400 max-w-xl mx-auto mt-2">
+              <b className="text-ink-200">Sponsor</b> introduces a new member; <b className="text-ink-200">Parent</b> is
               the direct upline they're placed under.
             </p>
           </div>
@@ -371,7 +370,7 @@ export default function BinaryMlmPlanPage() {
               diagram={
                 <div className="flex items-center gap-6">
                   <Node label="X" tone="orange" size="sm" />
-                  <ArrowRight size={14} className="text-slate-300" />
+                  <ArrowRight size={14} className="text-ink-200" />
                   <Node label="A" size="sm" />
                 </div>
               }
@@ -413,7 +412,7 @@ export default function BinaryMlmPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Spillover</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Spillover Types in the Binary Plan</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Spillover Types in the Binary Plan</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={ArrowDownToLine} title="Normal Spillover">
@@ -441,44 +440,44 @@ export default function BinaryMlmPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Earnings</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Binary Commission Calculation — 10% Example
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8">
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 1 · Initial Matching</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 1 · Initial Matching</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   A sponsors B (Left, 100 PV) and C (Right, 100 PV). Matched volume = 100 PV.
-                  Commission = 10% × 100 = <b className="text-slate-800">$10</b>.
+                  Commission = 10% × 100 = <b className="text-ink-100">$10</b>.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 2 · Downline Expansion</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 2 · Downline Expansion</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Left Leg: B recruits D (100 PV) + E (200 PV) = 300 PV total. Right Leg: C
                   recruits F (100 PV) + G (100 PV) = 200 PV total.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 3 · Weaker Leg</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 3 · Weaker Leg</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Left = 300 PV, Right = 200 PV → Right Leg becomes the Pay Leg.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 4 · Commission</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 4 · Commission</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   200 PV matched → 10% × 200 = $20. Remaining 100 PV on Left carries forward.
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-between bg-orange-50 border border-orange-200 rounded-xl px-5 py-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-600">
+            <div className="flex items-center justify-between bg-primary-500/10 border border-primary-500/30 rounded-xl px-5 py-4">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
                 Total Commission Earned by A ($10 + $20)
               </span>
-              <span className="text-2xl font-extrabold text-orange-600">$30</span>
+              <span className="text-2xl font-extrabold text-primary-400">$30</span>
             </div>
           </div>
         </section>
@@ -487,7 +486,7 @@ export default function BinaryMlmPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Rewards</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Bonuses Beyond Pairing</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Bonuses Beyond Pairing</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={Users} title="Binary Commission Bonus">Core earning, paid on the weaker leg's matched volume each cycle.</FeatureCard>
@@ -503,9 +502,9 @@ export default function BinaryMlmPlanPage() {
         <section>
           <div className="text-center mb-8">
             <Eyebrow>Summary</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">At a Glance</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">At a Glance</h2>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden max-w-2xl mx-auto">
+          <div className="bg-surface-card rounded-xl border border-white/[0.08] overflow-hidden max-w-2xl mx-auto">
             {[
               ["Frontline Width", "2 legs only"],
               ["Depth", "Unlimited"],
@@ -517,10 +516,10 @@ export default function BinaryMlmPlanPage() {
             ].map(([k, v], i) => (
               <div
                 key={k}
-                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-orange-50/50" : "bg-white"} ${i ? "border-t border-slate-100" : ""}`}
+                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-primary-500/10/50" : "bg-surface-card"} ${i ? "border-t border-white/[0.06]" : ""}`}
               >
-                <span className="font-semibold text-slate-500">{k}</span>
-                <span className="text-slate-800">{v}</span>
+                <span className="font-semibold text-ink-400">{k}</span>
+                <span className="text-ink-100">{v}</span>
               </div>
             ))}
           </div>

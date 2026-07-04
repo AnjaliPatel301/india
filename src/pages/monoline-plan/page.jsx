@@ -33,8 +33,8 @@ import {
 function Node({ label, tone = "slate", size = "md" }) {
   const tones = {
     orange: "bg-orange-500 text-white border-orange-600",
-    slate: "bg-white text-slate-700 border-slate-300",
-    light: "bg-orange-50 text-orange-700 border-orange-200",
+    slate: "bg-surface-card text-ink-200 border-white/[0.1]",
+    light: "bg-primary-500/10 text-primary-300 border-primary-500/30",
   };
   const sizes = { sm: "w-7 h-7 text-[10px]", md: "w-9 h-9 text-xs" };
   return (
@@ -48,7 +48,7 @@ function Eyebrow({ children }) {
   return (
     <div className="flex items-center justify-center gap-2 mb-3">
       <span className="h-px w-6 bg-orange-300" />
-      <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">{children}</span>
+      <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">{children}</span>
       <span className="h-px w-6 bg-orange-300" />
     </div>
   );
@@ -56,34 +56,34 @@ function Eyebrow({ children }) {
 
 function FeatureCard({ icon: Icon, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5 hover:border-orange-300 hover:shadow-md transition">
-      <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-3">
-        <Icon size={18} className="text-orange-600" />
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5 hover:border-primary-500/40 hover:shadow-md transition">
+      <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center mb-3">
+        <Icon size={18} className="text-primary-400" />
       </div>
-      <h3 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h3>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h3 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h3>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function StepCard({ n, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
       <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center mb-3">
         {n}
       </div>
-      <h4 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h4 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function ScenarioCard({ title, children, diagram }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
-      <div className="flex items-center justify-center h-28 mb-4 bg-orange-50/60 rounded-lg">{diagram}</div>
-      <h4 className="text-sm font-semibold text-orange-600 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
+      <div className="flex items-center justify-center h-28 mb-4 bg-primary-500/10 rounded-lg">{diagram}</div>
+      <h4 className="text-sm font-semibold text-primary-400 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
@@ -92,26 +92,26 @@ function ScenarioCard({ title, children, diagram }) {
 function HeroMonolineDiagram() {
   const members = ["A", "B", "C", "D", "E", "F"];
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+    <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 shadow-sm">
       <div className="flex items-center justify-between mb-5">
-        <span className="text-[11px] font-semibold tracking-widest uppercase text-orange-600">
+        <span className="text-[11px] font-semibold tracking-widest uppercase text-primary-400">
           Single-Line Preview
         </span>
-        <span className="text-[11px] text-slate-400">1 × ∞ line</span>
+        <span className="text-[11px] text-ink-600">1 × ∞ line</span>
       </div>
 
       <div className="flex flex-col items-center gap-1.5">
         {members.map((l, i) => (
           <React.Fragment key={l}>
             <Node label={l} tone={i === 0 ? "orange" : "light"} size="sm" />
-            {i < members.length - 1 && <div className="w-px h-2.5 bg-slate-300" />}
+            {i < members.length - 1 && <div className="w-px h-2.5 bg-white/20" />}
           </React.Fragment>
         ))}
-        <div className="w-px h-2.5 bg-slate-300" />
-        <span className="text-[9px] font-semibold text-orange-600">Line continues downward, unlimited width</span>
+        <div className="w-px h-2.5 bg-white/20" />
+        <span className="text-[9px] font-semibold text-primary-400">Line continues downward, unlimited width</span>
       </div>
 
-      <p className="text-[11px] text-slate-500 leading-relaxed mt-5 pt-4 border-t border-slate-100 text-center">
+      <p className="text-[11px] text-ink-400 leading-relaxed mt-5 pt-4 border-t border-white/[0.06] text-center">
         Every new member — regardless of who sponsored them — is placed into one single
         downward line. There's no left/right or width limit, just depth.
       </p>
@@ -121,24 +121,23 @@ function HeroMonolineDiagram() {
 
 export default function MonolinePlanPage() {
   return (
-    <div className="w-full bg-slate-50 text-slate-800" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');`}</style>
+    <div className="w-full bg-surface-base text-ink-100">
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
         {/* ============ HERO ============ */}
         <div className="flex items-center gap-2 mb-6 justify-center lg:justify-start">
           <ArrowDownToLine size={15} className="text-orange-500" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">
             #1 MLM Monoline Plan Software
           </span>
         </div>
 
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center mb-16">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-slate-900 mb-5">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-ink-100 mb-5">
               Monoline Plan <span className="text-orange-500">Software</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
+            <p className="text-sm sm:text-base text-ink-400 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
               A monoline plan — also called a single-line plan — places every new member into one
               continuous downward line, in the order they join. There's no separate team width or
               binary structure, just one shared line everyone benefits from.
@@ -147,12 +146,12 @@ export default function MonolinePlanPage() {
               <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition">
                 Get Started Free <ChevronRight size={15} />
               </button>
-              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:border-orange-400 hover:text-orange-600 transition">
+              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/[0.1] text-ink-200 hover:border-primary-500/60 hover:text-primary-400 transition">
                 <PlayCircle size={15} /> Try Free Demo
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-white/[0.08] max-w-md mx-auto lg:mx-0">
               {[
                 ["3000+", "Businesses", Building2],
                 ["100+", "Countries", Globe2],
@@ -160,8 +159,8 @@ export default function MonolinePlanPage() {
               ].map(([n, l, Icon]) => (
                 <div key={l} className="text-center lg:text-left">
                   <Icon size={14} className="text-orange-500 mb-1.5 mx-auto lg:mx-0" />
-                  <div className="text-lg font-extrabold text-slate-900">{n}</div>
-                  <div className="text-[11px] text-slate-500">{l}</div>
+                  <div className="text-lg font-extrabold text-ink-100">{n}</div>
+                  <div className="text-[11px] text-ink-400">{l}</div>
                 </div>
               ))}
             </div>
@@ -174,12 +173,12 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Definition</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               What is a <span className="text-orange-500">Monoline Plan</span>?
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
-            <p className="text-sm leading-relaxed text-slate-600">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
+            <p className="text-sm leading-relaxed text-ink-400">
               A monoline plan places every distributor — regardless of who personally sponsored
               them — into a single, shared downward line in strict join order. There's only one
               "leg," so there's no left/right balancing or team-width requirement. Earnings are
@@ -207,34 +206,34 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Structure</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Line Placement & Depth, Explained</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Line Placement & Depth, Explained</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 mb-6">
-            <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+            <div className="bg-primary-500/10 rounded-xl border border-primary-500/30 p-6">
               <div className="text-2xl mb-2">📏</div>
-              <h3 className="text-sm font-bold text-orange-700 mb-1">Single Line (Unlimited Width)</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-primary-300 mb-1">Single Line (Unlimited Width)</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 Every member sits at exactly one position in one line — there's no second leg to
                 fill or balance.
               </p>
-              <span className="text-[11px] font-semibold text-orange-600">Controls Placement</span>
+              <span className="text-[11px] font-semibold text-primary-400">Controls Placement</span>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="text-2xl mb-2">⏱️</div>
-              <h3 className="text-sm font-bold text-slate-800 mb-1">Join-Order Depth</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-ink-100 mb-1">Join-Order Depth</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 A member's depth in the line is fixed the moment they join — everyone after them
                 falls below, regardless of sponsor.
               </p>
-              <span className="text-[11px] font-semibold text-slate-500">Controls Earning Reach</span>
+              <span className="text-[11px] font-semibold text-ink-400">Controls Earning Reach</span>
             </div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-6 text-white">
+          <div className="bg-surface-card rounded-xl p-6 text-white">
             <h4 className="text-sm font-bold mb-3 text-orange-400">Line Placement Logic</h4>
-            <p className="text-xs text-slate-300 mb-3">
+            <p className="text-xs text-ink-200 mb-3">
               Every time a new member joins, the software checks the line's status:
             </p>
-            <ul className="space-y-1.5 text-xs text-slate-300">
+            <ul className="space-y-1.5 text-xs text-ink-200">
               {[
                 "The new member is placed at the next open position at the bottom of the single line",
                 "Their position locks in their depth relative to everyone already in the line",
@@ -252,7 +251,7 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Workflow</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               How Does the Monoline Plan Work?
             </h2>
           </div>
@@ -284,32 +283,32 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Analysis</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Pros & Cons of the Monoline Plan</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Pros & Cons of the Monoline Plan</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 size={17} className="text-orange-500" />
-                <span className="text-sm font-bold text-slate-800">Pros of the Monoline Plan</span>
+                <span className="text-sm font-bold text-ink-100">Pros of the Monoline Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Extremely Simple Structure</b> — one line, one position, easy for any new member to understand.</li>
-                <li><b className="text-slate-800">Shared Spillover Benefit</b> — every new join can help everyone already in the line above it.</li>
-                <li><b className="text-slate-800">No Width Pressure</b> — members aren't required to balance two or more legs.</li>
-                <li><b className="text-slate-800">Fast Onboarding</b> — there's only one decision to make: where in the line a member lands.</li>
-                <li><b className="text-slate-800">Strong Early-Mover Advantage</b> — members who join early sit higher and benefit from all later spillover.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Extremely Simple Structure</b> — one line, one position, easy for any new member to understand.</li>
+                <li><b className="text-ink-100">Shared Spillover Benefit</b> — every new join can help everyone already in the line above it.</li>
+                <li><b className="text-ink-100">No Width Pressure</b> — members aren't required to balance two or more legs.</li>
+                <li><b className="text-ink-100">Fast Onboarding</b> — there's only one decision to make: where in the line a member lands.</li>
+                <li><b className="text-ink-100">Strong Early-Mover Advantage</b> — members who join early sit higher and benefit from all later spillover.</li>
               </ul>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
-                <XCircle size={17} className="text-slate-400" />
-                <span className="text-sm font-bold text-slate-800">Cons of the Monoline Plan</span>
+                <XCircle size={17} className="text-ink-600" />
+                <span className="text-sm font-bold text-ink-100">Cons of the Monoline Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Depends Heavily on Company Marketing</b> — since placement isn't sponsor-driven, overall recruiting drives everyone's depth.</li>
-                <li><b className="text-slate-800">Late Joiners Earn Less</b> — depth in a single line means later members have fewer people below them.</li>
-                <li><b className="text-slate-800">Limited Personal Control</b> — a member's earnings depend on company-wide growth, not just their own efforts.</li>
-                <li><b className="text-slate-800">Regulatory Scrutiny</b> — single-line, depth-based payouts can resemble models some regions regulate closely.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Depends Heavily on Company Marketing</b> — since placement isn't sponsor-driven, overall recruiting drives everyone's depth.</li>
+                <li><b className="text-ink-100">Late Joiners Earn Less</b> — depth in a single line means later members have fewer people below them.</li>
+                <li><b className="text-ink-100">Limited Personal Control</b> — a member's earnings depend on company-wide growth, not just their own efforts.</li>
+                <li><b className="text-ink-100">Regulatory Scrutiny</b> — single-line, depth-based payouts can resemble models some regions regulate closely.</li>
               </ul>
             </div>
           </div>
@@ -319,11 +318,11 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Scenarios</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Different Scenarios in a Monoline Plan
             </h2>
-            <p className="text-xs text-slate-500 max-w-xl mx-auto mt-2">
-              <b className="text-slate-700">Spillover</b> — when a new member is placed below an
+            <p className="text-xs text-ink-400 max-w-xl mx-auto mt-2">
+              <b className="text-ink-200">Spillover</b> — when a new member is placed below an
               existing position, benefiting everyone above them.
             </p>
           </div>
@@ -345,7 +344,7 @@ export default function MonolinePlanPage() {
                 <div className="flex flex-col items-center gap-1">
                   <Node label="1" tone="orange" size="sm" />
                   <Node label="2" tone="light" size="sm" />
-                  <div className="w-7 h-7 rounded-lg border-2 border-dashed border-slate-300" />
+                  <div className="w-7 h-7 rounded-lg border-2 border-dashed border-white/[0.1]" />
                 </div>
               }
             >
@@ -375,7 +374,7 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Placement</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">How Line Positions Get Filled</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">How Line Positions Get Filled</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={MapPin} title="Strict Join-Order Fill">
@@ -404,46 +403,46 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Earnings</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Monoline Payout — Level Example
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8">
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 1 · Position Secured</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 1 · Position Secured</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Distributor A joins and is placed at position 100 in the company's single
                   shared line.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 2 · Line Fills Below</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 2 · Line Fills Below</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Over the next month, 50 new members join below position 100, each generating
                   $20 in qualifying volume.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 3 · Level Commission Applied</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 3 · Level Commission Applied</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   A earns a 10% level commission on volume from the next 20 positions directly
                   below them.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 4 · Payout Calculated</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 4 · Payout Calculated</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   20 qualifying positions × $20 volume × 10% commission ={" "}
-                  <b className="text-slate-800">$40</b> earned this cycle.
+                  <b className="text-ink-100">$40</b> earned this cycle.
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-between bg-orange-50 border border-orange-200 rounded-xl px-5 py-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-600">
+            <div className="flex items-center justify-between bg-primary-500/10 border border-primary-500/30 rounded-xl px-5 py-4">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
                 Level Commission Earned by A
               </span>
-              <span className="text-2xl font-extrabold text-orange-600">$40</span>
+              <span className="text-2xl font-extrabold text-primary-400">$40</span>
             </div>
           </div>
         </section>
@@ -452,7 +451,7 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Capping</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Monoline Plan Capping</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Monoline Plan Capping</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <FeatureCard icon={Lock} title="Capping by Depth">
@@ -470,7 +469,7 @@ export default function MonolinePlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Rewards</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Bonuses That Stack on Top</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Bonuses That Stack on Top</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={ArrowDownToLine} title="Level Bonus">Core payout earned from qualifying volume within a set number of levels below.</FeatureCard>
@@ -486,9 +485,9 @@ export default function MonolinePlanPage() {
         <section>
           <div className="text-center mb-8">
             <Eyebrow>Summary</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">At a Glance</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">At a Glance</h2>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden max-w-2xl mx-auto">
+          <div className="bg-surface-card rounded-xl border border-white/[0.08] overflow-hidden max-w-2xl mx-auto">
             {[
               ["Line Structure", "Single line — unlimited width, unlimited depth"],
               ["Placement Trigger", "Join order, regardless of sponsor"],
@@ -500,10 +499,10 @@ export default function MonolinePlanPage() {
             ].map(([k, v], i) => (
               <div
                 key={k}
-                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-orange-50/50" : "bg-white"} ${i ? "border-t border-slate-100" : ""}`}
+                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-primary-500/10/50" : "bg-surface-card"} ${i ? "border-t border-white/[0.06]" : ""}`}
               >
-                <span className="font-semibold text-slate-500">{k}</span>
-                <span className="text-slate-800">{v}</span>
+                <span className="font-semibold text-ink-400">{k}</span>
+                <span className="text-ink-100">{v}</span>
               </div>
             ))}
           </div>

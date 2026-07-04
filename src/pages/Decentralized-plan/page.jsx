@@ -37,8 +37,8 @@ import {
 function Node({ label, tone = "slate", size = "md" }) {
   const tones = {
     orange: "bg-orange-500 text-white border-orange-600",
-    slate: "bg-white text-slate-700 border-slate-300",
-    light: "bg-orange-50 text-orange-700 border-orange-200",
+    slate: "bg-surface-card text-ink-200 border-white/[0.1]",
+    light: "bg-primary-500/10 text-primary-300 border-primary-500/30",
   };
   const sizes = { sm: "w-7 h-7 text-[10px]", md: "w-9 h-9 text-xs" };
   return (
@@ -52,7 +52,7 @@ function Eyebrow({ children }) {
   return (
     <div className="flex items-center justify-center gap-2 mb-3">
       <span className="h-px w-6 bg-orange-300" />
-      <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">{children}</span>
+      <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">{children}</span>
       <span className="h-px w-6 bg-orange-300" />
     </div>
   );
@@ -60,34 +60,34 @@ function Eyebrow({ children }) {
 
 function FeatureCard({ icon: Icon, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5 hover:border-orange-300 hover:shadow-md transition">
-      <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-3">
-        <Icon size={18} className="text-orange-600" />
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5 hover:border-primary-500/40 hover:shadow-md transition">
+      <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center mb-3">
+        <Icon size={18} className="text-primary-400" />
       </div>
-      <h3 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h3>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h3 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h3>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function StepCard({ n, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
       <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center mb-3">
         {n}
       </div>
-      <h4 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h4 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function ScenarioCard({ title, children, diagram }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
-      <div className="flex items-center justify-center h-28 mb-4 bg-orange-50/60 rounded-lg">{diagram}</div>
-      <h4 className="text-sm font-semibold text-orange-600 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
+      <div className="flex items-center justify-center h-28 mb-4 bg-primary-500/10 rounded-lg">{diagram}</div>
+      <h4 className="text-sm font-semibold text-primary-400 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
@@ -95,33 +95,33 @@ function ScenarioCard({ title, children, diagram }) {
 /* ---------- hero diagram: a smart contract automatically routing commissions on-chain, no central admin ---------- */
 function HeroDecentralizedDiagram() {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+    <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 shadow-sm">
       <div className="flex items-center justify-between mb-5">
-        <span className="text-[11px] font-semibold tracking-widest uppercase text-orange-600">
+        <span className="text-[11px] font-semibold tracking-widest uppercase text-primary-400">
           On-Chain Flow Preview
         </span>
-        <span className="text-[11px] text-slate-400">Smart contract logic</span>
+        <span className="text-[11px] text-ink-600">Smart contract logic</span>
       </div>
 
       <div className="flex flex-col items-center gap-2">
-        <div className="flex items-center gap-2 bg-slate-900 text-white rounded-lg px-3 py-2">
+        <div className="flex items-center gap-2 bg-surface-card text-white rounded-lg px-3 py-2">
           <Code2 size={14} className="text-orange-400" />
           <span className="text-[10px] font-semibold">Smart Contract</span>
         </div>
-        <div className="w-px h-3 bg-slate-300" />
+        <div className="w-px h-3 bg-white/20" />
         <div className="flex gap-3">
           <Node label="A" tone="orange" size="sm" />
           <Node label="B" tone="light" size="sm" />
           <Node label="C" tone="light" size="sm" />
         </div>
-        <span className="text-[9px] font-semibold text-orange-600 mt-1">Wallets receive funds automatically</span>
+        <span className="text-[9px] font-semibold text-primary-400 mt-1">Wallets receive funds automatically</span>
         <div className="flex items-center gap-2 mt-2">
           <Eye size={14} className="text-orange-500" />
-          <span className="text-[10px] text-slate-500">Every transaction publicly verifiable on-chain</span>
+          <span className="text-[10px] text-ink-400">Every transaction publicly verifiable on-chain</span>
         </div>
       </div>
 
-      <p className="text-[11px] text-slate-500 leading-relaxed mt-5 pt-4 border-t border-slate-100 text-center">
+      <p className="text-[11px] text-ink-400 leading-relaxed mt-5 pt-4 border-t border-white/[0.06] text-center">
         Instead of a company database deciding payouts, a smart contract executes the
         compensation rules automatically — funds move wallet-to-wallet with no central admin
         able to alter balances.
@@ -132,24 +132,23 @@ function HeroDecentralizedDiagram() {
 
 export default function DecentralizedPlanPage() {
   return (
-    <div className="w-full bg-slate-50 text-slate-800" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');`}</style>
+    <div className="w-full bg-surface-base text-ink-100">
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
         {/* ============ HERO ============ */}
         <div className="flex items-center gap-2 mb-6 justify-center lg:justify-start">
           <Blocks size={15} className="text-orange-500" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">
             #1 Decentralized MLM Plan Software
           </span>
         </div>
 
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center mb-16">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-slate-900 mb-5">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-ink-100 mb-5">
               Decentralized Plan <span className="text-orange-500">Software</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
+            <p className="text-sm sm:text-base text-ink-400 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
               A decentralized plan runs compensation logic on a blockchain smart contract instead
               of a company-controlled database. Joining fees, splits, and payouts execute
               automatically and transparently, wallet-to-wallet, with no central admin able to
@@ -159,12 +158,12 @@ export default function DecentralizedPlanPage() {
               <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition">
                 Get Started Free <ChevronRight size={15} />
               </button>
-              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:border-orange-400 hover:text-orange-600 transition">
+              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/[0.1] text-ink-200 hover:border-primary-500/60 hover:text-primary-400 transition">
                 <PlayCircle size={15} /> Try Free Demo
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-white/[0.08] max-w-md mx-auto lg:mx-0">
               {[
                 ["3000+", "Businesses", Building2],
                 ["100+", "Countries", Globe2],
@@ -172,8 +171,8 @@ export default function DecentralizedPlanPage() {
               ].map(([n, l, Icon]) => (
                 <div key={l} className="text-center lg:text-left">
                   <Icon size={14} className="text-orange-500 mb-1.5 mx-auto lg:mx-0" />
-                  <div className="text-lg font-extrabold text-slate-900">{n}</div>
-                  <div className="text-[11px] text-slate-500">{l}</div>
+                  <div className="text-lg font-extrabold text-ink-100">{n}</div>
+                  <div className="text-[11px] text-ink-400">{l}</div>
                 </div>
               ))}
             </div>
@@ -204,12 +203,12 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Definition</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               What is a <span className="text-orange-500">Decentralized Plan</span>?
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
-            <p className="text-sm leading-relaxed text-slate-600">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
+            <p className="text-sm leading-relaxed text-ink-400">
               A decentralized plan encodes the compensation structure — splits, levels, payouts —
               directly into a blockchain smart contract. When a member joins or makes a
               qualifying transaction, the contract automatically routes funds to the relevant
@@ -239,34 +238,34 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Structure</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Smart Contract Rules & Verification, Explained</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Smart Contract Rules & Verification, Explained</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 mb-6">
-            <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+            <div className="bg-primary-500/10 rounded-xl border border-primary-500/30 p-6">
               <div className="text-2xl mb-2">📜</div>
-              <h3 className="text-sm font-bold text-orange-700 mb-1">Hard-Coded Payout Rules</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-primary-300 mb-1">Hard-Coded Payout Rules</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 Commission splits, levels, and thresholds are fixed in the contract at
                 deployment, before any member joins.
               </p>
-              <span className="text-[11px] font-semibold text-orange-600">Controls Payout Logic</span>
+              <span className="text-[11px] font-semibold text-primary-400">Controls Payout Logic</span>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="text-2xl mb-2">🔍</div>
-              <h3 className="text-sm font-bold text-slate-800 mb-1">On-Chain Verification</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-ink-100 mb-1">On-Chain Verification</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 Anyone can inspect the contract code and trace every transaction on the public
                 blockchain explorer.
               </p>
-              <span className="text-[11px] font-semibold text-slate-500">Controls Trust & Auditability</span>
+              <span className="text-[11px] font-semibold text-ink-400">Controls Trust & Auditability</span>
             </div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-6 text-white">
+          <div className="bg-surface-card rounded-xl p-6 text-white">
             <h4 className="text-sm font-bold mb-3 text-orange-400">On-Chain Payout Logic</h4>
-            <p className="text-xs text-slate-300 mb-3">
+            <p className="text-xs text-ink-200 mb-3">
               Every time a qualifying transaction occurs, the smart contract executes:
             </p>
-            <ul className="space-y-1.5 text-xs text-slate-300">
+            <ul className="space-y-1.5 text-xs text-ink-200">
               {[
                 "Incoming funds are checked against the contract's hard-coded split rules",
                 "The corresponding percentages are routed automatically to the relevant upline wallets",
@@ -284,7 +283,7 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Workflow</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               How Does the Decentralized Plan Work?
             </h2>
           </div>
@@ -315,33 +314,33 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Analysis</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Pros & Cons of the Decentralized Plan</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Pros & Cons of the Decentralized Plan</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 size={17} className="text-orange-500" />
-                <span className="text-sm font-bold text-slate-800">Pros of the Decentralized Plan</span>
+                <span className="text-sm font-bold text-ink-100">Pros of the Decentralized Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Full Transparency</b> — every payout rule and transaction is publicly verifiable, leaving no room for hidden manipulation.</li>
-                <li><b className="text-slate-800">No Central Point of Failure</b> — funds can't be frozen or redirected by a single company decision.</li>
-                <li><b className="text-slate-800">Instant Settlement</b> — payouts execute immediately as transactions confirm, with no manual processing delay.</li>
-                <li><b className="text-slate-800">Tamper-Resistant Rules</b> — once deployed and audited, the payout logic can't be quietly changed.</li>
-                <li><b className="text-slate-800">Appeals to Crypto-Native Audiences</b> — resonates with members already comfortable with wallets and blockchain tools.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Full Transparency</b> — every payout rule and transaction is publicly verifiable, leaving no room for hidden manipulation.</li>
+                <li><b className="text-ink-100">No Central Point of Failure</b> — funds can't be frozen or redirected by a single company decision.</li>
+                <li><b className="text-ink-100">Instant Settlement</b> — payouts execute immediately as transactions confirm, with no manual processing delay.</li>
+                <li><b className="text-ink-100">Tamper-Resistant Rules</b> — once deployed and audited, the payout logic can't be quietly changed.</li>
+                <li><b className="text-ink-100">Appeals to Crypto-Native Audiences</b> — resonates with members already comfortable with wallets and blockchain tools.</li>
               </ul>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
-                <XCircle size={17} className="text-slate-400" />
-                <span className="text-sm font-bold text-slate-800">Cons of the Decentralized Plan</span>
+                <XCircle size={17} className="text-ink-600" />
+                <span className="text-sm font-bold text-ink-100">Cons of the Decentralized Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Transparency Doesn't Equal Legality</b> — a pyramid structure on-chain is still a pyramid structure under most laws.</li>
-                <li><b className="text-slate-800">Smart Contract Risk</b> — bugs or exploits in unaudited code can permanently lock or drain funds.</li>
-                <li><b className="text-slate-800">Irreversible Mistakes</b> — incorrect transactions generally can't be refunded or reversed once confirmed.</li>
-                <li><b className="text-slate-800">Volatility Exposure</b> — payouts in cryptocurrency can fluctuate sharply in value after being received.</li>
-                <li><b className="text-slate-800">Regulatory Uncertainty</b> — crypto and securities regulation around token-based MLM models varies widely and changes often.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Transparency Doesn't Equal Legality</b> — a pyramid structure on-chain is still a pyramid structure under most laws.</li>
+                <li><b className="text-ink-100">Smart Contract Risk</b> — bugs or exploits in unaudited code can permanently lock or drain funds.</li>
+                <li><b className="text-ink-100">Irreversible Mistakes</b> — incorrect transactions generally can't be refunded or reversed once confirmed.</li>
+                <li><b className="text-ink-100">Volatility Exposure</b> — payouts in cryptocurrency can fluctuate sharply in value after being received.</li>
+                <li><b className="text-ink-100">Regulatory Uncertainty</b> — crypto and securities regulation around token-based MLM models varies widely and changes often.</li>
               </ul>
             </div>
           </div>
@@ -351,11 +350,11 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Scenarios</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Different Scenarios in a Decentralized Plan
             </h2>
-            <p className="text-xs text-slate-500 max-w-xl mx-auto mt-2">
-              <b className="text-slate-700">On-Chain Settlement</b> — the moment a transaction is
+            <p className="text-xs text-ink-400 max-w-xl mx-auto mt-2">
+              <b className="text-ink-200">On-Chain Settlement</b> — the moment a transaction is
               confirmed and recorded permanently on the blockchain.
             </p>
           </div>
@@ -378,8 +377,8 @@ export default function DecentralizedPlanPage() {
               diagram={
                 <div className="flex items-center gap-2">
                   <Node label="A" tone="orange" size="sm" />
-                  <div className="w-7 h-7 rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center">
-                    <Clock3 size={12} className="text-slate-400" />
+                  <div className="w-7 h-7 rounded-lg border-2 border-dashed border-white/[0.1] flex items-center justify-center">
+                    <Clock3 size={12} className="text-ink-600" />
                   </div>
                 </div>
               }
@@ -410,7 +409,7 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Architecture</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">How Decentralized Plans Get Built</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">How Decentralized Plans Get Built</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={Network} title="On-Chain Compensation Logic">
@@ -440,45 +439,45 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Earnings</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               On-Chain Payout — Example
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8">
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 1 · Transaction Sent</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 1 · Transaction Sent</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   A new member sends 0.1 ETH to the smart contract address to join the network.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 2 · Contract Splits Funds</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 2 · Contract Splits Funds</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   The contract's hard-coded rule routes 60% directly to the sponsor's wallet and
                   40% to the next two upline levels.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 3 · Wallets Credited</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 3 · Wallets Credited</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Sponsor A receives 0.06 ETH directly to their wallet within the same block
                   confirmation.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 4 · Publicly Verifiable</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 4 · Publicly Verifiable</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Anyone can confirm this exact transaction and split using a public blockchain
                   explorer.
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-between bg-orange-50 border border-orange-200 rounded-xl px-5 py-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-600">
+            <div className="flex items-center justify-between bg-primary-500/10 border border-primary-500/30 rounded-xl px-5 py-4">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
                 Direct Sponsor Payout to A
               </span>
-              <span className="text-2xl font-extrabold text-orange-600">0.06 ETH</span>
+              <span className="text-2xl font-extrabold text-primary-400">0.06 ETH</span>
             </div>
           </div>
         </section>
@@ -487,7 +486,7 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Capping</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Decentralized Plan Capping</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Decentralized Plan Capping</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <FeatureCard icon={Lock} title="Capping by Contract Rule">
@@ -504,7 +503,7 @@ export default function DecentralizedPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Rewards</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Bonuses That Stack on Top</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Bonuses That Stack on Top</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={Wallet} title="Direct Wallet Commission">Core payout routed instantly to a wallet on every qualifying transaction.</FeatureCard>
@@ -520,9 +519,9 @@ export default function DecentralizedPlanPage() {
         <section>
           <div className="text-center mb-8">
             <Eyebrow>Summary</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">At a Glance</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">At a Glance</h2>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden max-w-2xl mx-auto">
+          <div className="bg-surface-card rounded-xl border border-white/[0.08] overflow-hidden max-w-2xl mx-auto">
             {[
               ["Core Driver", "Smart contract-executed compensation logic"],
               ["Payout Trigger", "Confirmed on-chain transactions matching contract rules"],
@@ -534,10 +533,10 @@ export default function DecentralizedPlanPage() {
             ].map(([k, v], i) => (
               <div
                 key={k}
-                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-orange-50/50" : "bg-white"} ${i ? "border-t border-slate-100" : ""}`}
+                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-primary-500/10/50" : "bg-surface-card"} ${i ? "border-t border-white/[0.06]" : ""}`}
               >
-                <span className="font-semibold text-slate-500">{k}</span>
-                <span className="text-slate-800">{v}</span>
+                <span className="font-semibold text-ink-400">{k}</span>
+                <span className="text-ink-100">{v}</span>
               </div>
             ))}
           </div>

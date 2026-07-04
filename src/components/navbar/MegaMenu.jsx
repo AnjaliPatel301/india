@@ -40,7 +40,7 @@ export default function MegaMenu({ menu, onNavigate }) {
       aria-label={`${menu.label} menu`}
       className="absolute left-1/2 top-full z-40 w-screen max-w-3xl -translate-x-1/2 pt-4"
     >
-      <div className="glass-panel-strong bg-white text-black rounded-2xl p-6 shadow-premium">
+      <div className="glass-panel-strong bg-surface-raised/95 text-ink-100 rounded-2xl p-6 shadow-premium">
         <div className="grid grid-cols-1 gap-8  md:grid-cols-[1fr_1fr_auto]">
           {menu.columns.map((column, i) => (
             <motion.div
@@ -50,7 +50,7 @@ export default function MegaMenu({ menu, onNavigate }) {
               initial="hidden"
               animate="visible"
             >
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-black">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-400">
                 {column.heading}
               </p>
               <ul className="space-y-1">
@@ -68,10 +68,10 @@ export default function MegaMenu({ menu, onNavigate }) {
                           <Icon size={12} strokeWidth={1.75} />
                         </span>
                         <span>
-                          <span className="block text-sm font-medium text-black transition-colors group-hover:text-primary-400">
+                          <span className="block text-sm font-medium text-ink-100 transition-colors group-hover:text-primary-400">
                             {item.label}
                           </span>
-                          <span className="mt-0.5 block text-xs leading-snug text-black">
+                          <span className="mt-0.5 block text-xs leading-snug text-ink-400">
                             {item.description}
                           </span>
                         </span>

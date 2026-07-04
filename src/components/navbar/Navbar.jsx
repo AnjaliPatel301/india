@@ -34,9 +34,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 bg-white text-black  transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 text-ink-100 transition-all duration-300 ${
         scrolled
-          ? 'bg-surface-base/80 bg-white text-black backdrop-blur-xl border-b border-white/[0.06] shadow-card'
+          ? 'bg-surface-base/80 backdrop-blur-xl border-b border-white/[0.06] shadow-card'
           : 'bg-transparent'
       }`}
     >
@@ -45,7 +45,7 @@ export default function Navbar() {
         onKeyDown={handleKeyDown}
         aria-label="Primary"
       >
-        <Link to="/" className="flex items-center gap-2 text-xl font-semibold text-black">
+        <Link to="/" className="flex items-center gap-2 text-xl font-semibold text-ink-100">
          <img src="/mlm_logo.png" className="h-10 md:h-16" alt="Apex MLM logo" />
         </Link>
 
@@ -64,7 +64,7 @@ export default function Navbar() {
                 aria-expanded={item.mega ? activeMenu === item.label : undefined}
                 className={({ isActive }) =>
                   `group relative inline-flex items-center px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                    isActive ? 'text-primary-400' : 'text-black hover:text-black'
+                    isActive ? 'text-primary-400' : 'text-ink-200 hover:text-white'
                   }`
                 }
               >
@@ -98,7 +98,7 @@ export default function Navbar() {
           title="Open menu"
           className="flex h-12 w-12 md:h-11 md:w-11 items-center justify-center rounded-full glass-panel text-ink-100 lg:hidden"
         >
-          <Menu className='text-black' size={20} />
+          <Menu className='text-ink-100' size={20} />
         </button>
       </nav>
 

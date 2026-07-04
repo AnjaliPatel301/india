@@ -36,8 +36,8 @@ import {
 function Node({ label, tone = "slate", size = "md" }) {
   const tones = {
     orange: "bg-orange-500 text-white border-orange-600",
-    slate: "bg-white text-slate-700 border-slate-300",
-    light: "bg-orange-50 text-orange-700 border-orange-200",
+    slate: "bg-surface-card text-ink-200 border-white/[0.1]",
+    light: "bg-primary-500/10 text-primary-300 border-primary-500/30",
   };
   const sizes = { sm: "w-7 h-7 text-[10px]", md: "w-9 h-9 text-xs" };
   return (
@@ -51,7 +51,7 @@ function Eyebrow({ children }) {
   return (
     <div className="flex items-center justify-center gap-2 mb-3">
       <span className="h-px w-6 bg-orange-300" />
-      <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">{children}</span>
+      <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">{children}</span>
       <span className="h-px w-6 bg-orange-300" />
     </div>
   );
@@ -59,34 +59,34 @@ function Eyebrow({ children }) {
 
 function FeatureCard({ icon: Icon, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5 hover:border-orange-300 hover:shadow-md transition">
-      <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-3">
-        <Icon size={18} className="text-orange-600" />
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5 hover:border-primary-500/40 hover:shadow-md transition">
+      <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center mb-3">
+        <Icon size={18} className="text-primary-400" />
       </div>
-      <h3 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h3>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h3 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h3>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function StepCard({ n, title, children }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
       <div className="w-8 h-8 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center mb-3">
         {n}
       </div>
-      <h4 className="text-sm font-semibold text-slate-800 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+      <h4 className="text-sm font-semibold text-ink-100 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
 
 function ScenarioCard({ title, children, diagram }) {
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
-      <div className="flex items-center justify-center h-28 mb-4 bg-orange-50/60 rounded-lg">{diagram}</div>
-      <h4 className="text-sm font-semibold text-orange-600 mb-1.5">{title}</h4>
-      <p className="text-xs leading-relaxed text-slate-500">{children}</p>
+    <div className="bg-surface-card rounded-xl border border-white/[0.08] p-5">
+      <div className="flex items-center justify-center h-28 mb-4 bg-primary-500/10 rounded-lg">{diagram}</div>
+      <h4 className="text-sm font-semibold text-primary-400 mb-1.5">{title}</h4>
+      <p className="text-xs leading-relaxed text-ink-400">{children}</p>
     </div>
   );
 }
@@ -95,12 +95,12 @@ function ScenarioCard({ title, children, diagram }) {
 function HeroForexDiagram() {
   const bars = [14, 9, 20, 12, 26];
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+    <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 shadow-sm">
       <div className="flex items-center justify-between mb-5">
-        <span className="text-[11px] font-semibold tracking-widest uppercase text-orange-600">
+        <span className="text-[11px] font-semibold tracking-widest uppercase text-primary-400">
           Trading Pool Preview
         </span>
-        <span className="text-[11px] text-slate-400">Managed account model</span>
+        <span className="text-[11px] text-ink-600">Managed account model</span>
       </div>
 
       <div className="flex items-end justify-center gap-2 h-28 mb-4">
@@ -116,16 +116,16 @@ function HeroForexDiagram() {
 
       <div className="flex items-center justify-center gap-2 mb-2">
         <Wallet size={14} className="text-orange-500" />
-        <span className="text-[10px] text-slate-500">Member deposits funds into a trading account</span>
+        <span className="text-[10px] text-ink-400">Member deposits funds into a trading account</span>
       </div>
       <div className="flex items-center justify-center gap-2">
         <LineChart size={14} className="text-orange-500" />
-        <span className="text-[9px] font-semibold text-orange-600">
+        <span className="text-[9px] font-semibold text-primary-400">
           Trading results vary — payouts are not guaranteed
         </span>
       </div>
 
-      <p className="text-[11px] text-slate-500 leading-relaxed mt-5 pt-4 border-t border-slate-100 text-center">
+      <p className="text-[11px] text-ink-400 leading-relaxed mt-5 pt-4 border-t border-white/[0.06] text-center">
         Members deposit into a forex or trading-linked account, with profit-share or referral
         income layered on top. Unlike a fixed-return plan, payouts here genuinely depend on
         actual trading performance.
@@ -136,24 +136,23 @@ function HeroForexDiagram() {
 
 export default function ForexPlanPage() {
   return (
-    <div className="w-full bg-slate-50 text-slate-800" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');`}</style>
+    <div className="w-full bg-surface-base text-ink-100">
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
         {/* ============ HERO ============ */}
         <div className="flex items-center gap-2 mb-6 justify-center lg:justify-start">
           <CandlestickChart size={15} className="text-orange-500" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-orange-600">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary-400">
             #1 MLM Forex Plan Software
           </span>
         </div>
 
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center mb-16">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-slate-900 mb-5">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.1] text-ink-100 mb-5">
               Forex Plan <span className="text-orange-500">Software</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
+            <p className="text-sm sm:text-base text-ink-400 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-7">
               A forex plan ties network commissions to a trading-linked account — members deposit
               funds, trading activity generates profit or loss, and a referral structure on top
               rewards members for growing the network. Genuine trading performance, not a fixed
@@ -163,12 +162,12 @@ export default function ForexPlanPage() {
               <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition">
                 Get Started Free <ChevronRight size={15} />
               </button>
-              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:border-orange-400 hover:text-orange-600 transition">
+              <button className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border border-white/[0.1] text-ink-200 hover:border-primary-500/60 hover:text-primary-400 transition">
                 <PlayCircle size={15} /> Try Free Demo
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-white/[0.08] max-w-md mx-auto lg:mx-0">
               {[
                 ["3000+", "Businesses", Building2],
                 ["100+", "Countries", Globe2],
@@ -176,8 +175,8 @@ export default function ForexPlanPage() {
               ].map(([n, l, Icon]) => (
                 <div key={l} className="text-center lg:text-left">
                   <Icon size={14} className="text-orange-500 mb-1.5 mx-auto lg:mx-0" />
-                  <div className="text-lg font-extrabold text-slate-900">{n}</div>
-                  <div className="text-[11px] text-slate-500">{l}</div>
+                  <div className="text-lg font-extrabold text-ink-100">{n}</div>
+                  <div className="text-[11px] text-ink-400">{l}</div>
                 </div>
               ))}
             </div>
@@ -210,12 +209,12 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Definition</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               What is a <span className="text-orange-500">Forex Plan</span>?
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
-            <p className="text-sm leading-relaxed text-slate-600">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8 max-w-3xl mx-auto mb-8 text-center">
+            <p className="text-sm leading-relaxed text-ink-400">
               A forex plan links network commissions to a trading-related account or signal
               service. Members typically fund an individual or pooled trading account, and
               returns are based on actual trading outcomes — which can be positive or negative —
@@ -243,34 +242,34 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Structure</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Trading Accounts & Profit Share, Explained</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Trading Accounts & Profit Share, Explained</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 mb-6">
-            <div className="bg-orange-50 rounded-xl border border-orange-200 p-6">
+            <div className="bg-primary-500/10 rounded-xl border border-primary-500/30 p-6">
               <div className="text-2xl mb-2">📊</div>
-              <h3 className="text-sm font-bold text-orange-700 mb-1">Trading Account (Individual or Pooled)</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-primary-300 mb-1">Trading Account (Individual or Pooled)</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 Funds are held in an individually-owned or pooled account linked to a licensed
                 broker for actual trade execution.
               </p>
-              <span className="text-[11px] font-semibold text-orange-600">Controls Capital at Risk</span>
+              <span className="text-[11px] font-semibold text-primary-400">Controls Capital at Risk</span>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="text-2xl mb-2">📆</div>
-              <h3 className="text-sm font-bold text-slate-800 mb-1">Profit-Share Cycle</h3>
-              <p className="text-xs leading-relaxed text-slate-600 mb-3">
+              <h3 className="text-sm font-bold text-ink-100 mb-1">Profit-Share Cycle</h3>
+              <p className="text-xs leading-relaxed text-ink-400 mb-3">
                 The fixed period over which trading results are calculated and any profit share
                 is distributed to members.
               </p>
-              <span className="text-[11px] font-semibold text-slate-500">Controls Payout Timing</span>
+              <span className="text-[11px] font-semibold text-ink-400">Controls Payout Timing</span>
             </div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-6 text-white">
+          <div className="bg-surface-card rounded-xl p-6 text-white">
             <h4 className="text-sm font-bold mb-3 text-orange-400">Profit-Share Calculation Logic</h4>
-            <p className="text-xs text-slate-300 mb-3">
+            <p className="text-xs text-ink-200 mb-3">
               At every profit-share cycle, the software checks each linked account:
             </p>
-            <ul className="space-y-1.5 text-xs text-slate-300">
+            <ul className="space-y-1.5 text-xs text-ink-200">
               {[
                 "Actual trading results for the period are pulled from the connected broker account",
                 "Net profit (if any) is split between the member and the platform per the agreed share",
@@ -288,7 +287,7 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Workflow</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               How Does the Forex Plan Work?
             </h2>
           </div>
@@ -320,32 +319,32 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Analysis</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Pros & Cons of the Forex Plan</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Pros & Cons of the Forex Plan</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
                 <CheckCircle2 size={17} className="text-orange-500" />
-                <span className="text-sm font-bold text-slate-800">Pros of the Forex Plan</span>
+                <span className="text-sm font-bold text-ink-100">Pros of the Forex Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Genuine Market-Linked Returns</b> — when run transparently, payouts reflect real trading activity rather than fabricated promises.</li>
-                <li><b className="text-slate-800">Appeals to Trading Interest</b> — attracts members already interested in financial markets and trading education.</li>
-                <li><b className="text-slate-800">Flexible Models</b> — can be built around signals, copy-trading, or fully self-directed accounts.</li>
-                <li><b className="text-slate-800">Referral Layer Adds Reach</b> — network commissions can extend beyond pure trading income.</li>
-                <li><b className="text-slate-800">Broker Transparency Builds Trust</b> — individually-owned, broker-verified accounts let members see real performance.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Genuine Market-Linked Returns</b> — when run transparently, payouts reflect real trading activity rather than fabricated promises.</li>
+                <li><b className="text-ink-100">Appeals to Trading Interest</b> — attracts members already interested in financial markets and trading education.</li>
+                <li><b className="text-ink-100">Flexible Models</b> — can be built around signals, copy-trading, or fully self-directed accounts.</li>
+                <li><b className="text-ink-100">Referral Layer Adds Reach</b> — network commissions can extend beyond pure trading income.</li>
+                <li><b className="text-ink-100">Broker Transparency Builds Trust</b> — individually-owned, broker-verified accounts let members see real performance.</li>
               </ul>
             </div>
-            <div className="bg-white rounded-xl border border-slate-200 p-6">
+            <div className="bg-surface-card rounded-xl border border-white/[0.08] p-6">
               <div className="flex items-center gap-2 mb-4">
-                <XCircle size={17} className="text-slate-400" />
-                <span className="text-sm font-bold text-slate-800">Cons of the Forex Plan</span>
+                <XCircle size={17} className="text-ink-600" />
+                <span className="text-sm font-bold text-ink-100">Cons of the Forex Plan</span>
               </div>
-              <ul className="space-y-3 text-xs leading-relaxed text-slate-600">
-                <li><b className="text-slate-800">Very High Regulatory Risk</b> — pooled trading with fixed-looking returns is frequently classified as unlicensed investment activity or securities fraud.</li>
-                <li><b className="text-slate-800">Real Risk of Loss</b> — unlike fabricated "guaranteed" plans, genuine trading can and does lose money.</li>
-                <li><b className="text-slate-800">Frequently Used for Scams</b> — the forex MLM space has a long history of Ponzi-style operations collapsing and disappearing with funds.</li>
-                <li><b className="text-slate-800">Heavy Compliance Burden</b> — broker licensing, disclosures, and securities law vary significantly by country.</li>
+              <ul className="space-y-3 text-xs leading-relaxed text-ink-400">
+                <li><b className="text-ink-100">Very High Regulatory Risk</b> — pooled trading with fixed-looking returns is frequently classified as unlicensed investment activity or securities fraud.</li>
+                <li><b className="text-ink-100">Real Risk of Loss</b> — unlike fabricated "guaranteed" plans, genuine trading can and does lose money.</li>
+                <li><b className="text-ink-100">Frequently Used for Scams</b> — the forex MLM space has a long history of Ponzi-style operations collapsing and disappearing with funds.</li>
+                <li><b className="text-ink-100">Heavy Compliance Burden</b> — broker licensing, disclosures, and securities law vary significantly by country.</li>
               </ul>
             </div>
           </div>
@@ -355,11 +354,11 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Scenarios</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Different Scenarios in a Forex Plan
             </h2>
-            <p className="text-xs text-slate-500 max-w-xl mx-auto mt-2">
-              <b className="text-slate-700">Profit Share</b> — the portion of genuine trading
+            <p className="text-xs text-ink-400 max-w-xl mx-auto mt-2">
+              <b className="text-ink-200">Profit Share</b> — the portion of genuine trading
               profit distributed to the member after a cycle closes.
             </p>
           </div>
@@ -382,7 +381,7 @@ export default function ForexPlanPage() {
               diagram={
                 <div className="flex items-end gap-1.5">
                   {[28, 22, 16, 10].map((h, i) => (
-                    <div key={i} className="w-5 bg-slate-300 rounded-t-sm" style={{ height: `${h}px` }} />
+                    <div key={i} className="w-5 bg-white/20 rounded-t-sm" style={{ height: `${h}px` }} />
                   ))}
                 </div>
               }
@@ -413,7 +412,7 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Configuration</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">How Trading Models Are Structured</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">How Trading Models Are Structured</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={Wallet} title="Individually-Owned Accounts">
@@ -442,48 +441,48 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Earnings</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">
               Profit-Share Payout — Illustrative Example
             </h2>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8">
+          <div className="bg-surface-card rounded-2xl border border-white/[0.08] p-6 sm:p-8">
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 1 · Account Funded</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 1 · Account Funded</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Member A deposits $1,000 into an individually-owned trading account linked to a
                   licensed broker.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 2 · Cycle Trades</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 2 · Cycle Trades</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   Over the monthly cycle, the account's trading activity generates a net profit of
                   $80 (a hypothetical, non-guaranteed outcome).
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 3 · Profit Split Applied</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 3 · Profit Split Applied</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   The platform's agreed profit-share is 50/50, so A is credited 50% of the net
                   profit.
                 </p>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">Step 4 · Referral Bonus</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary-400 mb-2">Step 4 · Referral Bonus</h4>
+                <p className="text-xs text-ink-400 leading-relaxed">
                   A also earns a 5% referral commission on a newly referred trader's deposit,
                   separate from trading results.
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-between bg-orange-50 border border-orange-200 rounded-xl px-5 py-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-600">
+            <div className="flex items-center justify-between bg-primary-500/10 border border-primary-500/30 rounded-xl px-5 py-4">
+              <span className="text-xs font-semibold uppercase tracking-wider text-ink-400">
                 Profit Share Earned by A This Cycle (Hypothetical)
               </span>
-              <span className="text-2xl font-extrabold text-orange-600">$40</span>
+              <span className="text-2xl font-extrabold text-primary-400">$40</span>
             </div>
-            <p className="text-[11px] text-slate-400 mt-3 text-center">
+            <p className="text-[11px] text-ink-600 mt-3 text-center">
               Example assumes a profitable cycle for illustration only — actual trading results
               vary and losses are possible.
             </p>
@@ -494,7 +493,7 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Capping</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Forex Plan Capping</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Forex Plan Capping</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             <FeatureCard icon={Lock} title="Capping by Drawdown Limit">
@@ -512,7 +511,7 @@ export default function ForexPlanPage() {
         <section className="mb-20">
           <div className="text-center mb-10">
             <Eyebrow>Rewards</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Bonuses That Stack on Top</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">Bonuses That Stack on Top</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard icon={CandlestickChart} title="Profit-Share Bonus">A share of verified net trading profit credited at the end of each cycle.</FeatureCard>
@@ -528,9 +527,9 @@ export default function ForexPlanPage() {
         <section>
           <div className="text-center mb-8">
             <Eyebrow>Summary</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">At a Glance</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-100">At a Glance</h2>
           </div>
-          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden max-w-2xl mx-auto">
+          <div className="bg-surface-card rounded-xl border border-white/[0.08] overflow-hidden max-w-2xl mx-auto">
             {[
               ["Core Driver", "Trading account performance, plus optional referral layer"],
               ["Payout Trigger", "Net profit at the end of each profit-share cycle"],
@@ -542,10 +541,10 @@ export default function ForexPlanPage() {
             ].map(([k, v], i) => (
               <div
                 key={k}
-                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-orange-50/50" : "bg-white"} ${i ? "border-t border-slate-100" : ""}`}
+                className={`grid grid-cols-2 px-5 py-3.5 text-xs ${i % 2 ? "bg-primary-500/10/50" : "bg-surface-card"} ${i ? "border-t border-white/[0.06]" : ""}`}
               >
-                <span className="font-semibold text-slate-500">{k}</span>
-                <span className="text-slate-800">{v}</span>
+                <span className="font-semibold text-ink-400">{k}</span>
+                <span className="text-ink-100">{v}</span>
               </div>
             ))}
           </div>

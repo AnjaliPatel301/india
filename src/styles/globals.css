@@ -8,11 +8,27 @@
   }
 
   body {
-    font-feature-settings: 'kern', 'liga';
+    font-family: 'General Sans', Inter, system-ui, sans-serif;
+    font-feature-settings: 'kern', 'liga', 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Clash Display', 'General Sans', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   ::selection {
     background-color: rgba(249, 115, 22, 0.3);
+    color: #fff;
   }
 
   /* Visible keyboard focus everywhere — accessibility floor */
