@@ -21,16 +21,16 @@ const aiCapabilities = [
 
 export default function AIAutomation() {
   return (
-    <section className="">
-      {/* <div className="container-app">
+    <section className="section-pad bg-surface-base">
+      <div className="container-app">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow">AI Automation</p>
-            <h2 className="mt-3 text-3xl font-semibold text-ink-100 md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-semibold text-ink-100 md:text-4xl text-balance">
               Let AI run the math. Your team runs the business.
             </h2>
-            <p className="mt-4 text-ink-400">
-              Apex AI sits underneath your compensation engine — watching every transaction,
+            <p className="mt-4 text-ink-400 text-pretty">
+              Our AI engine sits underneath your compensation logic — watching every transaction,
               catching anomalies, and forecasting growth so your team can focus on distributors,
               not spreadsheets.
             </p>
@@ -103,7 +103,7 @@ export default function AIAutomation() {
             </div>
           </Reveal>
         </div>
-      </div> */}
+      </div>
     </section>
   );
 }

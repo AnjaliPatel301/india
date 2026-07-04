@@ -9,11 +9,11 @@ import 'swiper/css/pagination';
 
 export default function TestimonialsCarousel() {
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-surface-base">
       <div className="container-app">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Client Testimonials</p>
-          <h2 className="mt-3 text-3xl font-semibold text-black md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-semibold text-ink-100 md:text-4xl text-balance">
             Trusted by network marketing leaders
           </h2>
         </Reveal>
@@ -35,14 +35,14 @@ export default function TestimonialsCarousel() {
           >
             {testimonials.map((t) => (
               <SwiperSlide key={t.name}>
-                <figure className="flex h-full flex-col rounded-2xl shadow-md border border-orange-200 shadow-orange-400 glass-panel p-7">
+                <figure className="flex h-full flex-col rounded-2xl glass-panel p-7 transition-colors duration-300 hover:bg-white/[0.07]">
                   <Quote size={22} className="text-primary-500" />
-                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-black">
+                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink-200">
                     “{t.quote}”
                   </blockquote>
-                  <figcaption className="mt-5 border-t border-black/[0.08] pt-4">
-                    <p className="text-sm font-medium text-black">{t.name}</p>
-                    <p className="text-xs text-black">{t.role}</p>
+                  <figcaption className="mt-5 border-t border-white/[0.08] pt-4">
+                    <p className="text-sm font-medium text-ink-100">{t.name}</p>
+                    <p className="text-xs text-ink-400">{t.role}</p>
                   </figcaption>
                 </figure>
               </SwiperSlide>

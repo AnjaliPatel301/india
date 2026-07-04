@@ -5,14 +5,14 @@ const chartBars = [38, 52, 44, 61, 58, 72, 68, 80, 75, 88, 84, 95];
 
 export default function AnalyticsShowcase() {
   return (
-    <section className="section-pad bg-gray-200 ">
+    <section className="section-pad bg-surface-base">
       <div className="container-app">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Analytics</p>
-          <h2 className="mt-3 text-3xl font-semibold text-black md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-semibold text-ink-100 md:text-4xl text-balance">
             Every metric that matters, in one dashboard
           </h2>
-          <p className="mt-4 text-black">
+          <p className="mt-4 text-ink-400 text-pretty">
             Track sales, commissions, and network growth in real time — no exports, no waiting
             for end-of-month reports.
           </p>

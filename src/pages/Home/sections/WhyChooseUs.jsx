@@ -135,17 +135,17 @@ const mlmPlans = [
 
 export default function AllPlansSection() {
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-surface-base">
       <div className="container-app">
 
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">MLM Compensation Plans</p>
 
-          <h2 className="mt-3 text-4xl font-bold text-black">
+          <h2 className="mt-3 font-display text-4xl font-bold text-ink-100 text-balance">
             All MLM Plans We Develop
           </h2>
 
-          <p className="mt-5 text-lg text-ink-400">
+          <p className="mt-5 text-lg text-ink-400 text-pretty">
             We provide custom MLM software development for every major
             compensation model used across the global direct selling industry.
           </p>
@@ -157,7 +157,7 @@ export default function AllPlansSection() {
     return (
       <Reveal key={plan.title} delay={index * 0.05}>
       <Link to={plan.path} className="block h-full">
-  <div className="group h-full overflow-hidden rounded-md border border-gray-200 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+  <div className="group h-full overflow-hidden rounded-2xl glass-panel transition-all duration-300 hover:-translate-y-2 hover:bg-white/[0.07] hover:shadow-glow">
 
     {/* Plan Image */}
     <div className="relative h-56 overflow-hidden">
@@ -173,15 +173,15 @@ export default function AllPlansSection() {
 
     {/* Content */}
     <div className="p-7">
-      <h3 className="text-2xl font-bold text-black">
+      <h3 className="text-2xl font-bold text-ink-100">
         {plan.title}
       </h3>
 
-      <p className="mt-4 text-sm leading-7 text-gray-600">
+      <p className="mt-4 text-sm leading-7 text-ink-400">
         {plan.description}
       </p>
 
-      <button className="mt-6 rounded-md bg-orange-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">
+      <button className="btn-primary mt-6 text-sm">
         View Details
       </button>
     </div>
